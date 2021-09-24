@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Dobleclick::Software e Ingeniería</title>
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/plantilla_nomina.css?20Marzo2015"/>
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/plantillaCalendario.css?20Marzo2015"/>
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/font-awesome.min.css?04Mayo2017"/>
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/buttons.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/fixedHeader.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/responsive.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/scroller.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/custom.css">
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/tabla_minimalista.css">
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/jquery-ui.min.css">
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/jquery-ui.structure.min.css">
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/jquery-ui.theme.min.css">
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/modernizr.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/obtener_fecha_hora.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/jquery.dataTables.min.js?06Mayo2017"></script>
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/jquery.blockUI.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/bootstrap.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/custom.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/dataTables.responsive.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/dataTables.scroller.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/responsive.bootstrap.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/viabilidadAmpliacion.js"></script>
+        <script>
+            $(document).ajaxStop($.unblockUI);
+            $(document).ready(function () {
+                oTable = $('#tabla').dataTable({
+                    "iDisplayLength": 25,
+                    "sPaginationType": "full_numbers",
+                    "oLanguage": {
+                        "sLengthMenu": "MOSTRAR: _MENU_ REGISTROS POR PAGINA",
+                        "sZeroRecords": "NO SE HA ENCONTRADO INFORMACION",
+                        "sInfo": "MOSTRANDO <b>_START_</b> A <b>_END_</b> REGISTROS <br>TOTAL REGISTROS: <b>_TOTAL_</b> REGISTROS</b>",
+                        "sInfoEmpty": "MOSTRANDO 0 A 0 REGISTROS",
+                        "sInfoFiltered": "(FILTRADOS DE UN TOTAL DE <b>_MAX_</b> REGISTROS)",
+                        "sLoadingRecords": "CARGANDO...",
+                        "sProcessing": "EN PROCESO...",
+                        "sSearch": "BUSCAR:",
+                        "sEmptyTable": "NO HAY INFORMACION DISPONIBLE PARA LA TABLA",
+                        "oPaginate": {
+                            "sFirst": "Inicio",
+                            "sLast": "Fin",
+                            "sNext": "Siguiente",
+                            "sPrevious": "Anterior"
+                        }
+                    },
+                    "aaSorting": [[0, "desc"]]
+                });
+
+                $(document).on('click', '.quitar', function () {
+                    var objFila = $(this).parents().get(1);
+                    $(objFila).remove();
+                    var tds = $(objFila).find('td');
+                    var ids = $("#idsRecursos").val().split(',');
+                    ids.splice($.inArray(tds[0].innerHTML, ids), 1);
+                    $("#idsRecursos").val(ids.toString());
+                    $("#contAsignados").val(parseInt($("#contAsignados").val()) - 1);
+                    return false;
+                });
+                $(document).on('click', '.quitarMaterial', function () {
+                    var objFila = $(this).parents().get(1);
+                    $(objFila).remove();
+                    var tds = $(objFila).find('td');
+                    var ids = $("#idsMateriales").val().split(',');
+                    ids.splice($.inArray(tds[0].innerHTML, ids), 1);
+                    $("#idsMateriales").val(ids.toString());
+                    $("#contAsignadosMaterial").val(parseInt($("#contAsignadosMaterial").val()) - 1);
+                    return false;
+                });
+//------------------------------------------------------------------------------
+                $('#tabla tbody').on('click', 'tr', function () {
+                    if ($(this).hasClass('selected')) {
+                        $(this).removeClass('selected');
+                    } else {
+                        oTable.$('tr.selected').removeClass('selected');
+                        $(this).addClass('selected');
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body id="contenedor" onload="mostrarTiempo()" class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <div id="cabecera">
+                    <div id="logo">
+                        <img src="/crm/publico/img/logo.png" alt="" title="Dobleclick Software e Ingenieria" border="0" />
+                    </div><!-- fin logo-->
+                    <div id="info_cabecera">
+                        <form name="form_info_cabecera" style="margin-top: -20px;">
+                            <input type="text" name="usuario" value="{user_name}" onfocus = "this.blur()" />
+                            <input type="text" name="hora" id="hora" onfocus = "this.blur()"/><br>
+                            <input type="text" name="cargo" value="{user_charge}" id="cargo" onfocus = "this.blur()"/>
+                            <input type="text" name="fecha" id="fecha" value="" onfocus = "this.blur()"/>
+                        </form>
+                        <div id="logout">
+                            <a href="/sw2click/modulos/usuarios/cerrarSesion" title="Cerrar Sesion">
+                                Cerrar Sesion
+                            </a>
+                        </div>   
+                    </div><!-- fin info_cabecera-->
+
+                </div><!-- fin cabecera-->
+                <div id="cuerpo" class="clearfix">
+                    <div id="menu">
+                        <a href="/sw2click/modulos/secciones/seccionGeneral" title="Seccion General">Inicio</a>
+                    </div>
+                    <div role="main" style="padding: 0px 50px 20px 50px">
+                        <br />
+                        <div class="page-title" style="color: #222">
+                            <div class="title_left">
+                                <h3><i class="fa fa-wrench" style="font-size: 34px"></i> {titulo} <br> <small style="color: #00F">{subtitulo}</small></h3>
+                            </div>
+                            <div id="mensaje">
+                                <strong>{mensaje}</strong>
+                            </div>  <!--fin mensaje-->   
+                        </div><br><br><br><br><br>
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            {contenido}
+                        </div>                
+                    </div><!-- fin cuerpo-->
+                </div><!-- fin cuerpo-->
+            </div>
+        </div>
+        <div id="pie_pagina">
+            <img src="../../publico/img/copyright.png" alt="" border="0" />
+        </div>
+    </body>
+</html>

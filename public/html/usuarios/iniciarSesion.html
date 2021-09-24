@@ -1,0 +1,30 @@
+<form name="login" action="{LOGIN}" method="post" class="form-horizontal form-label-left backgroundOscuro" style="width: 750px">
+    <fieldset>
+        <legend>Inicia sesion con tus credenciales de acceso</legend>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="login">Usuario</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input name="login" class="form-control" autofocus required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">Password</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="password" name="password" class="form-control" onKeyPress="capLock(event)" required>
+            </div>
+        </div>        
+    </fieldset>
+    <div class="ln_solid"></div>
+    <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+            <input type="submit" id="iniciarSesion" name="enviar" value="Iniciar Sesion" class="btn btn-primary"> 
+        </div>
+    </div>
+    <div id="mayusculas" class="alerta mensajes" hidden>La tecla de mayúsculas está ACTIVADA<br></div>
+    <div id="mensaje">{mensaje}</div>
+    <img src="/sw2click/public/img/loginInfo.png" alt=""> <br><br>
+</form>
+<script>
+    validar_HTML5();
+</script>
+

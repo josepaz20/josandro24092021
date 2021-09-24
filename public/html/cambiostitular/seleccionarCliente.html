@@ -1,0 +1,40 @@
+<fieldset>
+    <legend>Informacion del Cliente</legend>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idCliente">ID CLIENTE</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="idCliente" name="idCliente" value="{idCliente}" class="form-control" readonly>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="identificacionAux">IDENTIFICACION</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="identificacionAux" name="identificacionAux" value="{identificacion}" class="form-control" readonly>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombres">NOMBRES</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="nombres" name="nombres" value="{nombres}" class="form-control" readonly>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="apellidos">APELLIDOS</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="apellidos" name="apellidos" value="{apellidos}" class="form-control" readonly>
+        </div>
+    </div>
+</fieldset>
+<div class="ln_solid"></div>
+<fieldset>
+    <legend>Informacion del Servicio</legend>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idServicioBusq">SERVICIO</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <select id="idServicioBusq" name="idServicioBusq" onchange="getInfoServicio()" class="form-control">
+                {listaServicios}
+            </select>
+        </div>
+    </div>
+    <div id="divInfoServicio"></div>
+</fieldset>

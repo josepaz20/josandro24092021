@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Dobleclick::Software e Ingenieria</title>
+        <link rel="stylesheet" type="text/css" href="../../public/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/plantilla_nomina.css?20Marzo2015"/>
+        <link rel="stylesheet" type="text/css" href="../../public/css/plantillaCalendario.css?20Marzo2015"/>
+        <link rel="stylesheet" type="text/css" href="../../public/css/font-awesome.min.css?04Mayo2017"/>
+        <link rel="stylesheet" type="text/css" href="../../public/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/buttons.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/fixedHeader.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/responsive.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/scroller.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/custom.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/tabla_minimalista.css">
+        <script type="text/javascript" charset="utf-8" src="../../public/js/modernizr.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/obtener_fecha_hora.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/jquery.dataTables.min.js?06Mayo2017"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/jquery.blockUI.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/bootstrap.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/custom.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/dataTables.responsive.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/dataTables.scroller.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/responsive.bootstrap.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/scriptsCompras.js?09Marzo2021"></script>
+        <script>
+            $(document).ajaxStop($.unblockUI);
+            $(document).ready(function () {
+                oTable = $('#tabla').dataTable({
+                    "scrollX": true,
+                    "iDisplayLength": 25,
+                    "sPaginationType": "full_numbers",
+                    "oLanguage": {
+                        "sLengthMenu": "MOSTRAR: _MENU_ REGISTROS POR PAGINA",
+                        "sZeroRecords": "NO SE HA ENCONTRADO INFORMACION",
+                        "sInfo": "MOSTRANDO <b>_START_</b> A <b>_END_</b> REGISTROS <br>TOTAL REGISTROS: <b>_TOTAL_</b> REGISTROS</b>",
+                        "sInfoEmpty": "MOSTRANDO 0 A 0 REGISTROS",
+                        "sInfoFiltered": "(FILTRADOS DE UN TOTAL DE <b>_MAX_</b> REGISTROS)",
+                        "sSearch": "BUSCAR: ",
+                        "sEmptyTable": "NO HAY INFORMACION DISPONIBLE PARA LA TABLA",
+                        "oPaginate": {
+                            "sFirst": "Inicio",
+                            "sLast": "Fin",
+                            "sNext": "Siguiente",
+                            "sPrevious": "Anterior"
+                        }
+                    },
+                    "aaSorting": [[0, "desc"]],
+                });
+                //------------------------------------------------------------------------------
+                $(document).on("click", ".quitarItem", function () {
+                    var objFila = $(this).parents().get(1);
+                    $(objFila).remove();
+                    var tds = $(objFila).find("td");
+                    var ids = $("#numItems").val().split(",");
+                    ids.splice($.inArray(tds[0].innerHTML, ids), 1);
+//                    $("#idsMaterialesAsignados").val(ids.toString());
+//                    $("#numItems").val(parseInt($("#numItems").val()) - 1);
+                    return false;
+                }); 
+                //------------------------------------------------------------------------------
+            });
+        </script>
+        <style type="text/css">
+            .highcharts-figure, .highcharts-data-table table {
+                min-width: 320px; 
+                max-width: 800px;
+                margin: 1em auto;
+            }            
+            .highcharts-data-table table {
+            	font-family: Verdana, sans-serif;
+            	border-collapse: collapse;
+            	border: 1px solid #EBEBEB;
+            	margin: 10px auto;
+            	text-align: center;
+            	width: 100%;
+            	max-width: 500px;
+            }
+            .highcharts-data-table caption {
+                padding: 1em 0;
+                font-size: 1.2em;
+                color: #555;
+            }
+            .highcharts-data-table th {
+            	font-weight: 600;
+                padding: 0.5em;
+            }
+            .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+                padding: 0.5em;
+            }
+            .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+                background: #f8f8f8;
+            }
+            .highcharts-data-table tr:hover {
+                background: #f1f7ff;
+            }        
+    		</style>
+    </head>
+    <body id="contenedor" onload="mostrarTiempo()" class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <div id="cabecera">
+                    <div id="logo">
+                        <img src="../../public/img/logo.png" alt="" title="Dobleclick Software e Ingenieria" border="0" />
+                    </div><!-- fin logo-->
+                    <div id="info_cabecera">
+                        <form name="form_info_cabecera" style="margin-top: -20px;">
+                            <input type="text" name="usuario" value="{nombreUsuario}" onfocus = "this.blur()" />
+                            <input type="text" name="hora" id="hora" onfocus = "this.blur()"/><br>
+                            <input type="text" name="cargo" value="{cargoEmpleado}" id="cargo" onfocus = "this.blur()"/>
+                            <input type="text" name="fecha" id="fecha" value="" onfocus = "this.blur()"/>
+                        </form>
+                        <div id="logout">
+                            {opcCerrarSesion}
+                        </div>   
+                    </div><!-- fin info_cabecera-->
+
+                </div><!-- fin cabecera-->
+                <div id="cuerpo" class="clearfix">
+                    <div id="menu">
+                        {opcInicio}
+                    </div>
+                    <div role="main" style="padding: 0px 50px 20px 50px">
+                        <br />
+                        <div id="mensaje">
+                            {mensaje}
+                        </div> <!-- fin mensaje-->   
+                        <div class="page-title" style="color: #222">
+                            <div class="title_left">
+                                <h3><i class="fa fa-shopping-cart"></i> {titulo} - <small style="color: #00F">{subtitulo}</small></h3>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            {contenido}
+                        </div>                
+                    </div><!-- fin cuerpo-->
+                </div><!-- fin cuerpo-->
+            </div>
+        </div>
+        <div id="pie_pagina">
+            <img src="../../public/img/copyright.png" alt="" border="0" />
+        </div>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<div id="formulario_tabla">
+    <table id="tablaClientes" style="border: 0; width:1000px" class="pretty">
+        <thead>
+            <tr id="busqueda_avanzada" hidden>
+                <th><input style="width: 95%" name="buscar_idCorporativo" value="ID..." class="search_init"></th>
+                <th><input style="width: 95%" name="buscar_nit" value="NIT..." class="search_init"></th>
+                <th><input style="width: 95%" name="buscar_municipio" value="Municipio..." class="search_init"></th>
+                <th><input style="width: 95%" name="buscar_razonSocial" value="Razon Social..." class="search_init"></th>
+                <th><input style="width: 95%" name="buscar_telefono" value="Telefono..." class="search_init"></th>
+                <th><input style="width: 95%" name="buscar_email" value="Email..." class="search_init"></th>
+                <th class="icono"></th>
+            </tr>                
+            <tr>
+                <th style="width: 8% !important">ID </th>
+                <th style="width: 12% !important">NIT</th>
+                <th style="width: 12% !important">MUNICIPIO</th>
+                <th style="width: 25% !important">RAZON SOCIAL</th>
+                <th>TELEFONO</th>
+                <th>EMAIL</th>
+                <th style="width: 1% !important">SELECT</th>
+            </tr>
+        </thead>
+        <tbody>
+            {tablaCorporativos}
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+</div>
+<br><br><br><br>

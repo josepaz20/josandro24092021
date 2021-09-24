@@ -1,0 +1,70 @@
+/* 
+    Document   : plantillaAgenda
+    Created on : 24/08/2013, 08:50:01 AM
+    Author     : ADMIN
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.semana{
+    width: 200px;
+    height: auto;
+    position: absolute;
+    font-weight: bold;
+    letter-spacing: 5px;
+    background: transparent;
+}
+
+.lunes{
+    margin-left: 0px;
+}
+
+.martes{
+    margin-left: 210px;
+}
+
+.miercoles{
+    margin-left: 420px;
+}
+
+.jueves{
+    margin-left: 630px;
+}
+
+.viernes{
+    margin-left: 840px;
+}
+
+.sabado{
+    margin-left: 1050px;
+}
+
+.domingo{
+    margin-left: 1260px;
+}
+
+.titulo{
+    text-align: center;
+    background: rgb(200, 240, 255);
+    padding: 5px;
+    border: 1px solid #777;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+}
+
+.actividad{
+    border: 1px solid #777;
+    padding: 5px;
+    font-size: 13px;
+    font-weight: normal;
+    letter-spacing: 0px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+}
+
+.fechaDia{
+    color: #00F;
+    font-size: 12px;
+    font-weight: normal;
+    letter-spacing: 0px;
+}

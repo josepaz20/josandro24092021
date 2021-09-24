@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dobleclick Software e Ingenieria</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/jquery.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/jqueryUI.js"></script>
+        <link href="/sw2click/public/css/jqueryUI.css" rel="stylesheet" type="text/css" />
+        <link href="/sw2click/public/css/plantillaPopup.css?20Marzo2015" rel="stylesheet" type="text/css" />
+        <script src="/sw2click/public/js/scriptsUsuarios.js?22Diciembre2017" language="JavaScript"></script>
+        <style>
+            html {
+                padding: 10px 50px 20px 50px;
+                background: #BBB;
+            }
+            body {
+                background: #FFF;
+                padding: 10px 10px;
+                font-family: sans-serif;
+                font-size: 20px;
+                border: 1px solid #555;
+                box-shadow: 5px 5px 3px #555;
+                -moz-border-radius: 10px;
+                -webkit-border-radius: 10px;
+                min-height: 800px;
+            }
+            #superior {
+                background: #000;
+                min-height: 100px;
+                padding: 20px;
+                -moz-border-radius: 10px;
+                -webkit-border-radius: 10px;
+            }            
+            .imagen1 {
+                float: left;
+            }
+            .imagen2 {
+                float: right;
+            }
+            .imagen3 {
+                max-width: 100%;
+                height: auto;
+                box-shadow: 5px 10px 18px #888888;
+            }
+            
+            div.polaroid {
+              width: 95%;
+              padding: 15px 5px;
+              border: 1px solid #BFBFBF;
+              background-color: white;
+              box-shadow: 10px 10px 5px #aaaaaa;
+              margin: 0 auto;
+            }            
+            
+            .titulo1 {
+                color: #BBB;
+                font-size: 30px;
+                font-weight: bold;
+                margin-right: 60px;
+                letter-spacing: 2px;
+            }
+            .titulo2 {
+                color: #FFF;
+                font-size: 25px;
+                font-weight: bold;
+                margin-right: 60px;
+                letter-spacing: 2px;
+            }
+            .recomendacion {
+                border: 2px solid #000;
+                -moz-border-radius: 10px;
+                -webkit-border-radius: 10px;
+                padding: 15px 15px 15px 5px;
+                text-align: justify;
+                margin-top: 10px;
+            }
+            .imagenRecomendacion {
+                float: left;
+            }
+            .tituloRecomendacion {
+                font-size: 24px;
+                font-weight: bold;
+            }
+            table td{
+                padding: 0px 20px;
+            }
+            .btnJosandro{
+                border: 2px solid #000;
+                -moz-border-radius: 10px;
+                -webkit-border-radius: 10px;
+                padding: 10px;
+                background: #FF0;
+                font-size: 18px;
+                font-weight: bold;
+                float: right;
+                cursor: pointer;
+            }
+            .btnJosandro:hover {
+                background: #000;
+                color: #FF0;
+                border: 3px solid #FF0;
+            }
+            input[type='text'] {
+                width: 300px;
+                height: 24px;
+                margin: 5px 0;
+                padding: 0 0 0 5px;
+                border-radius:3px;
+                border-radius:3px;
+                border:1px solid rgba(0,0,0, 0.3);
+                color: #333;
+                background-color:#FFF;
+            }
+            .labelModal {
+                font-size:14px;
+                width: 180px;
+                margin: 8px 0;
+                float:left;
+                color: #EEE;
+            }
+            .botonModal {
+                -moz-box-shadow: 0px 10px 10px -6px #9acc85;
+                -webkit-box-shadow: 0px 10px 10px -6px #9acc85;
+                box-shadow: 0px 10px 10px -6px #9acc85;
+
+                background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #74ad5a), color-stop(1, #68a54b));
+                background:-moz-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+                background:-webkit-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+                background:-o-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+                background:-ms-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+                background:linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#74ad5a', endColorstr='#68a54b',GradientType=0);
+
+                background-color:#74ad5a;
+
+                -moz-border-radius:10px;
+                -webkit-border-radius:10px;
+                border-radius:10px;
+
+                display:inline-block;
+                color:#ffffff;
+                font-family:arial;
+                font-weight:normal;
+                text-decoration:none;
+
+                text-shadow:0px 1px 0px #92b879;
+
+                margin: 20px 20px 0 0;
+                font-size:16px;
+                width: auto;
+                height:30px;
+                cursor:pointer;
+                clear:both;
+                border: 0px;
+                padding: 3px 10px;
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+                $.get("http://localhost/sw2click/modulos/usuarios/get_tipo_usuario", "", activarMensaje, 'json');
+            });
+
+            function activarMensaje(datos) {
+                if (datos['esRecaudador'] === 1) {
+                    $(".btnJosandro").removeAttr('onclick');
+                    $(".btnJosandro").attr('onclick', "location.href = '/sw2click/modulos/secciones/seccionGeneral';");
+                }
+            }
+
+            function mostrarMensaje() {
+                $("#dlgConfirm").dialog({
+                    width: 600,
+                    height: 370,
+                    show: {effect: "explode", duration: 800},
+                    hide: {effect: "explode", duration: 800},
+                    resizable: "false",
+                    position: "center",
+                    modal: "true",
+                    closeOnEscape: "true",
+                    closeText: "Cerrar"
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <img src="http://www.dobleclick.net.co/logoMarcaDobleclick.jpg" alt="" title="Dobleclick Software e Ingenieria" width="300">
+        <input type="button" class="btnJosandro" value="Ir a JOSANDRO >>>" onclick="location.href = '/sw2click/modulos/secciones/seccionGeneral';"> 
+
+        <div style="text-align: center;" class="polaroid">
+          <img src="http://www.dobleclick.net.co/properoanionuevo.jpeg" alt="DOBLECLICK TE DESEA UN PROPERO ANIO NUEVO" class="imagen3">
+          <br><br>
+        </div>
+        <br><br>
+       
+        <input type="button" class="btnJosandro" value="Ir a JOSANDRO >>>" onclick="location.href = '/sw2click/modulos/secciones/seccionGeneral';">
+        <br><br><br>
+        
+    </body>
+</html>

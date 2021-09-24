@@ -1,0 +1,117 @@
+<div class="col-md-12 col-sm-12 col-xs-12 backgroundOscuro">
+    <form action="insertarc" method="POST" onsubmit="return validarRegistrarCorporativo()" class="form-horizontal form-label-left" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Ubicación del Cliente</legend>           
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idDpto">DEPARTAMENTO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <select id="idDpto" name="idDpto" class="form-control" onchange="getMunicipios(this.value)" required>
+                        {listaDptos}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idMcpo">MUNICIPIO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <select id="idMcpo" name="idMcpo" class="form-control" required>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+         <fieldset>
+            <legend>Información del Cliente</legend>           
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nit">NIT *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="number" id="nit" name="nit" onchange="existeNit()" placeHolder="Digite Sólo Números(Sin Guiones)" value="" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="razonSocial">RAZON SOCIAL *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="razonSocial" name="razonSocial" value="" maxlength="100" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="direccion">DIRECCION *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="direccion" name="direccion" value="" maxlength="100" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefono">TELEFONO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="number" id="telefono" name="telefono" value=""  class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="celular1">CELULAR 1 *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="number" id="celular1" name="celular1" value=""  class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="celular2">CELULAR 2 *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="number" id="celular2" name="celular2" value=""  class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email1">E-MAIL 1 *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type ="email" id="email1" name="email1" value="" maxlength="100" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email2">E-MAIL 2*</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type ="email" id="email2" name="email2" value="" maxlength="100" class="form-control" required>
+                </div>
+            </div>           
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="observacion">OBSERVACIONES *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <textarea id="observacion" name="observacion" maxlength="100" class="form-control" required></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="referenciado">REFERENCIADO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <select id="referenciado" name="referenciado" class="form-control" onchange="setReferenciado()"  required>
+                        <option value="">Seleccione...</option>
+                        <option value="1">Si</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label id = "referenciadoactual" class="control-label col-md-3 col-sm-3 col-xs-12" for="referenciadoPor">REFERENCIADO POR</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type ="text" id="referenciadoPor" name="referenciadoPor" value="" maxlength="100" class="form-control" >
+                </div>
+            </div> 
+        </fieldset>
+         <fieldset>
+            <legend>Información del Representante Legal</legend>           
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="representanteLegal">REPRESENTANTE *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="representanteLegal" name="representanteLegal" value="" maxlength="100" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cedulaRepresentante">CEDULA*</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="number" id="cedulaRepresentante" name="cedulaRepresentante" class="form-control" placeHolder="Digite Sólo Números" required>
+                </div>
+            </div>          
+        </fieldset>
+        <div class="ln_solid"></div>
+        <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> Registrar Coorporativo</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
+            </div>
+        </div>
+    </form>
+</div>

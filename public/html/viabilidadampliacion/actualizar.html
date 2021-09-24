@@ -1,0 +1,39 @@
+<div class="col-md-12 col-sm-12 col-xs-12 backgroundOscuro">
+    <form id="frmRegistrar" action="update" method="POST" onsubmit="return validarEditar()" class="form-horizontal form-label-left" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Actualizar  Viabilidad de Ampliación</legend>
+             <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idViabilidad">ID VIABILIDAD *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="idViabilidad" name="idViabilidad" value="{idViabilidad}" maxlength="100" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idAmpliacion">ID AMPLIACION *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="idAmpliacion" name="idAmpliacion" value="{idAmpliacion}" maxlength="100" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="costototal">COSTO TOTAL *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="costototal" name="costototal" value ={costototal} maxlength="100" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="observaciones">OBSERVACIONES *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="observaciones" name="observaciones" value="{observaciones}" maxlength="100" class="form-control" required>
+                </div>
+            </div>
+        </fieldset>
+        <div class="ln_solid"></div>
+        <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> Actualizar Viabilidad</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dobleclick Software e Ingenieria</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/jquery.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/jqueryUI.js"></script>
+        <link href="/sw2click/public/css/jqueryUI.css" rel="stylesheet" type="text/css" />
+        <style>
+            html {
+                padding: 10px 50px 20px 50px;
+                background: #BBB;
+            }
+            body {
+                background: #FFF;
+                padding: 10px 10px;
+                font-family: sans-serif;
+                font-size: 20px;
+                border: 1px solid #555;
+                box-shadow: 5px 5px 3px #555;
+                -moz-border-radius: 10px;
+                -webkit-border-radius: 10px;
+                min-height: 1070px;
+            }
+            #superior {
+                background: #000;
+                min-height: 100px;
+                padding: 20px;
+                -moz-border-radius: 10px;
+                -webkit-border-radius: 10px;
+            }
+            .imagen1 {
+                float: left;
+            }
+            .imagen2 {
+                float: right;
+            }
+            .titulo1 {
+                color: #BBB;
+                font-size: 30px;
+                font-weight: bold;
+                margin-right: 60px;
+                letter-spacing: 2px;
+            }
+            .titulo2 {
+                color: #FFF;
+                font-size: 25px;
+                font-weight: bold;
+                margin-right: 60px;
+                letter-spacing: 2px;
+            }
+            .recomendacion {
+                border: 2px solid #000;
+                -moz-border-radius: 10px;
+                -webkit-border-radius: 10px;
+                padding: 15px 15px 15px 5px;
+                text-align: justify;
+                margin-top: 10px;
+            }
+            .imagenRecomendacion {
+                float: left;
+            }
+            .tituloRecomendacion {
+                font-size: 24px;
+                font-weight: bold;
+            }
+            table td{
+                padding: 0px 20px;
+            }
+            .btnJosandro{
+                border: 2px solid #000;
+                -moz-border-radius: 10px;
+                -webkit-border-radius: 10px;
+                padding: 10px;
+                background: #FF0;
+                font-size: 18px;
+                font-weight: bold;
+                float: right;
+                cursor: pointer;
+            }
+            .btnJosandro:hover {
+                background: #000;
+                color: #FF0;
+                border: 3px solid #FF0;
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+                $.get("http://localhost/sw2click/modulos/usuarios/get_tipo_usuario", "", activarMensaje, 'json');
+            });
+
+            function activarMensaje(datos) {
+                if (datos['esRecaudador'] === 1) {
+                    $(".btnJosandro").removeAttr('onclick');
+                    $(".btnJosandro").attr('onclick', "location.href = '/sw2click/modulos/secciones/seccionGeneral';");
+                }
+            }
+
+            function mostrarMensaje() {
+                $("#dlgConfirm").dialog({
+                    width: 600,
+                    height: 370,
+                    show: {effect: "explode", duration: 800},
+                    hide: {effect: "explode", duration: 800},
+                    resizable: "false",
+                    position: "center",
+                    modal: "true",
+                    closeOnEscape: "true",
+                    closeText: "Cerrar"
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <img src="/sw2click/public/img/logo.png" alt="" title="Dobleclick Software e Ingenieria" />
+        <input type="button" class="btnJosandro" value="Ir a JOSANDRO >>>" onclick="location.href = '/swEvaluacion/modulos/evaluacion/evaluacionEmpleado';">
+        <!--<input type="button" class="btnJosandro" value="Ir a JOSANDRO >>>" onclick="mostrarMensaje()">--> 
+        <div id="superior">
+            <img src="/sw2click/public/img/autobus.png" class="imagen1">
+            <img src="/sw2click/public/img/automovil.png" class="imagen2">
+            <img src="/sw2click/public/img/moto.png" class="imagen2">
+            <label class="titulo1">SOY UN CONDUCTOR RESPONSABLE</label> <br>
+            <label class="titulo2">PORQUE HOY Y TODOS LOS DÍAS</label>
+        </div> <br>
+        <table id="contenido">
+            <tr>
+                <td>
+                    <div class="recomendacion">
+                        <img src="/sw2click/public/img/revisado.png" class="imagenRecomendacion">
+                        <label class="tituloRecomendacion">He revisado el vehículo antes de salir</label>
+                        <div class="textoRecomendacion">
+                            (estado de llantas, frenos, luces, aceite, gasolina, batería, testigos, embrague, dirección, equipo de carretera, etc.)
+                        </div>
+                    </div>
+                </td>
+                <td style="border: none"></td>
+                <td>
+                    <div class="recomendacion">
+                        <img src="/sw2click/public/img/revisado.png" class="imagenRecomendacion" style="margin-top: -10px">
+                        <label class="tituloRecomendacion">Descanso adecuadamente antes de tomar el volante</label> <br><br>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="recomendacion">
+                        <img src="/sw2click/public/img/revisado.png" class="imagenRecomendacion" style="margin-top: -10px">
+                        <label class="tituloRecomendacion">He planificado el trayecto o recorrido</label>
+                        <div class="textoRecomendacion">
+                            Tengo clara la ruta que voy a tomar y las posibles contingencias.
+                        </div>
+                    </div>
+                </td> 
+                <td style="border: none"></td>
+                <td>
+                    <div class="recomendacion">
+                        <img src="/sw2click/public/img/revisado.png" class="imagenRecomendacion" style="margin-top: -10px">
+                        <label class="tituloRecomendacion">Realizo pausas cuando me encuentro fatigado</label> <br><br>
+                    </div>
+                    <div class="recomendacion">
+                        <img src="/sw2click/public/img/revisado.png" class="imagenRecomendacion" style="margin-top: -10px">
+                        <label class="tituloRecomendacion">Permanezco atento y concentrado en la vía</label> <br><br>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="recomendacion">
+                        <img src="/sw2click/public/img/revisado.png" class="imagenRecomendacion">
+                        <label class="tituloRecomendacion">No llevo exceso de carga o pasajeros</label>
+                        <div class="textoRecomendacion">
+                            (cargas sobredimensionadas o superiores a la capacidad del vehículo)
+                        </div> <br>
+                    </div>
+                </td>
+                <td style="border: none"></td>
+                <td>
+                    <div class="recomendacion">
+                        <img src="/sw2click/public/img/revisado.png" class="imagenRecomendacion" style="margin-top: -10px">
+                        <label class="tituloRecomendacion">Si percibo fallas en el vehículo, no dejaré la reparación para otro día</label> <br><br>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="recomendacion" style="background: #000">
+                        <img src="/sw2click/public/img/revisado.png" class="imagenRecomendacion" style="margin-top: -10px">
+                        <label class="tituloRecomendacion" style="color: #FFF">Protego mi vida y la de los demás</label> <br><br><br>
+                    </div>
+                </td>
+                <td style="border: none"></td>
+                <td>
+                    <div class="recomendacion">
+                        <img src="/sw2click/public/img/revisado.png" class="imagenRecomendacion">
+                        <label class="tituloRecomendacion">No consumo alcohol cuando voy a conducir</label>
+                        <div class="textoRecomendacion">
+                            (Ni una sola cerveza)
+                        </div> <br>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="recomendacion">
+                        <img src="/sw2click/public/img/revisado.png" class="imagenRecomendacion" style="margin-top: -10px">
+                        <label class="tituloRecomendacion">Respeto los límites de velocidad</label> <br><br><br>
+                    </div>
+                </td>
+                <td style="border: none"></td>
+                <td>
+                    <div class="recomendacion">
+                        <img src="/sw2click/public/img/revisado.png" class="imagenRecomendacion" style="margin-top: -10px">
+                        <label class="tituloRecomendacion">No adelanto en curva o línea continúa</label> <br><br><br>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="recomendacion">
+                        <img src="/sw2click/public/img/revisado.png" class="imagenRecomendacion" style="margin-top: -10px">
+                        <label class="tituloRecomendacion">Respeto todas las señales de tránsito</label> <br><br><br>
+                    </div>
+                </td>
+                <td style="border: none"></td>
+                <td>
+                    <div class="recomendacion">
+                        <img src="/sw2click/public/img/revisado.png" class="imagenRecomendacion" style="margin-top: -10px">
+                        <label class="tituloRecomendacion">Conservo la calma y evito la agresividad</label> <br><br>
+                    </div>
+                </td>
+            </tr>
+        </table> <br>
+        <!--<input type="button" class="btnJosandro" value="Ir a JOSANDRO >>>" onclick="location.href = '/sw2click/modulos/secciones/seccionGeneral';">-->
+        <input type="button" class="btnJosandro" value="Ir a JOSANDRO >>>" onclick="mostrarMensaje()"> 
+        <br><br><br>
+
+        <div id="dlgConfirm" title="Prueba de Conocimiento" style="display: none">
+            <fieldset style="border: 1px solid #9fda58;
+                      padding:10px;
+                      border-radius:5px;
+                      -moz-border-radius:5px;
+                      -webkit-border-radius:5px;
+                      font-family: sans-serif;
+                      font-size: 16px">
+                <legend style="color: #9fda58">Estimado Usuario</legend>
+                Esta a punto de iniciar su Prueba de Conocimiento. Para realizar dicha prueba usted cuenta con un tiempo de 45 minutos.
+                Una vez se supere este tiempo el sistema le dejara enviar la evaluacion, pero su puntuacion obtenida se decrementara de acuerdo al tiempo de mas que usted gaste en realizar la prueba.
+            </fieldset> <br>
+            <input type="button" class="btnJosandro" value="Realizar Prueba >>>" onclick="location.href = '/swEvaluacion/modulos/evaluacion/evaluacionEmpleado';"> <br><br>
+            <input type="button" class="btnJosandro" value="Ir a Josandro >>>" onclick="location.href = '/sw2click/modulos/secciones/seccionGeneral';">
+        </div>    
+    </body>
+</html>

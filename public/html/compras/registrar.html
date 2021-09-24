@@ -1,0 +1,44 @@
+<div class="col-md-12 col-sm-12 col-xs-12 backgroundOscuro">
+  <form action="addcompra" method="POST" onsubmit="return validarRegistrarItem();">
+      <div class="ln_solid"></div>
+      <fieldset>
+          <legend>Informacion del Item</legend>
+          <div style="overflow-x: scroll">
+            <table id="tblIndex" class="table table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                <thead>
+                    <tr style="color: white;">
+                        <th></th>
+                        <th>TIPO ITEM</th>
+                        <th>DESCRIPCION</th>
+                        <th>CANTIDAD</th>
+                        <th>VALOR UNITARIO</th>
+                        <th>JUSTIFICACION</th>
+                        <th>FECHA LIMITE</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="divItems">
+                    <tr></tr>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+          </div> <br>
+          <input id="contItems" value="0" hidden="">
+          <input id="numItems" name="numItems" value="0" hidden="">
+          <input id="fechalimiteINI" name="fechalimiteINI" value="{fechalimiteINI}" hidden="">
+          <select id="idTipoItemAux" hidden>
+            {listaTipositem}
+          </select>
+          <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-10">
+              <button type="button" class="btn btn-success" onclick="registraritems()"><i class="fa fa-plus"></i> Agregar Item</button>
+          </div>
+      </fieldset>
+      <div class="ln_solid"></div>
+      <div class="form-group">
+          <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+              <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
+              <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Guardar</button>
+          </div>
+      </div>
+  </form>
+</div>

@@ -1,0 +1,47 @@
+<div class="col-md-12 col-sm-12 col-xs-12 backgroundOscuro">
+    <form id="frmRegistrar" action="deleterecurso" method="POST" onsubmit="return validarEliminarRecurso()" class="form-horizontal form-label-left" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Eliminación del Recurso</legend>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idViabilidad">ID VIABILIDAD *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="idViabilidad" name="idViabilidad" value="{idViabilidad}" maxlength="100" class="form-control" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idTipoRecurso">ID TIPO RECURSO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="idTipoRecurso" name="idTipoRecurso" value="{idTipoRecurso}" maxlength="100" class="form-control" readonly>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cantidad">CANTIDAD *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="idTipoRecurso" name="cantidad" value="{cantidad}" maxlength="100" class="form-control" readonly>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="valor">VALOR *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="valor" name="valor" value="{valor}" maxlength="100" class="form-control" readonly>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="estado">ESTADO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="estado" name="estado" value="{estado}" maxlength="100" class="form-control" readonly>
+                </div>
+            </div> 
+        </fieldset>
+        <div class="ln_solid"></div>
+
+
+        <div class="ln_solid"></div>
+        <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> Eliminar Recurso</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
+            </div>
+        </div>
+    </form>
+</div>

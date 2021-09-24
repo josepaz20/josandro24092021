@@ -1,0 +1,26 @@
+
+<div id="formulario">
+    <form name="form_contrasena" action="{CHANGE_PASSWORD}" method="POST">
+        <label for="login">Usuario</label>
+        <input readonly name="login" id="login" value="{login}"> <br>
+
+        <label for="password">Contraseña Actual</label>
+        <input required type="password" name="password" id="password" > *<br>
+
+        <label for="password1">Nueva Contraseña</label>
+        <input required type="password" name="newPassword" id="password1" pattern=".{6,}" onchange="form_contrasena.newPassword1.pattern = this.value; this.setCustomValidity(this.validity.patternMismatch ? 'La contraseña debe tener al menos 6 caracteres' : '');" maxlength="20"> *<br>
+
+        <label for="password2">Repetir Nueva Contraseña</label>
+        <input required type="password" name="newPassword1" id="password2" maxlength="20" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Las contraseñas NO coinciden' : '');"> *<br>
+
+        <input type="hidden" name="form_name" value="cambiar_contrasena">
+        <input type="hidden" name="id_usuario" value="{id_usuario}">
+<!--
+        <input type="hidden" name="passwordOld" value="{password}">
+-->        
+        <!--boton-->
+        <input type="submit" name="enviar" id="enviar" value="Guardar Cambios" class="boton">
+        <input type="button" name="cancelar" value="Cancelar" class="boton" onClick="location.href ='/sw2click/modulos/secciones/seccion_cuenta'">
+
+    </form>
+</div>

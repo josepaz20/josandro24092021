@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>.:Dobleclick:.Software e Ingeniería</title>
+        <link href="/sw2click/public/css/plantillaVer.css?27Mayo2014" rel="stylesheet" type="text/css" />
+        <script src="/sw2click/public/js/scriptsUsuarios.js" language="JavaScript"></script>
+
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/jquery.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/jquery.dataTables.js?26Junio2014"></script>
+
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/tablas.css">
+
+        <script>
+            var asInitVals = new Array();
+            $(document).ready(function() {
+                oTable = $('#tablaClientes').dataTable({
+                    "iDisplayLength": 25,
+                    "sPaginationType": "full_numbers",
+                    "oLanguage": {
+                        "sLengthMenu": "MOSTRAR: _MENU_ REGISTROS POR PAGINA",
+                        "sZeroRecords": "NO SE HA ENCONTRADO INFORMACION",
+                        "sInfo": "MOSTRANDO <b>_START_</b> A <b>_END_</b> REGISTROS <br>TOTAL REGISTROS: <b>_TOTAL_</b> REGISTROS</b>",
+                        "sInfoEmpty": "MOSTRANDO 0 A 0 REGISTROS",
+                        "sInfoFiltered": "(FILTRADOS DE UN TOTAL DE <b>_MAX_</b> REGISTROS)",
+                        "sLoadingRecords": "CARGANDO...",
+                        "sProcessing": "EN PROCESO...",
+                        "sSearch": "BUSCAR:",
+                        "sEmptyTable": "NO HAY INFORMACION DISPONIBLE PARA LA TABLA",
+                        "oPaginate": {
+                            "sFirst": "Inicio",
+                            "sLast": "Fin",
+                            "sNext": "Siguiente",
+                            "sPrevious": "Anterior"
+                        }
+                    },
+                    "aaSorting": [[0, "asc"]]
+                });
+              
+
+                $("thead input").each(function(i) {
+                    asInitVals[i] = this.value;
+                });
+
+                $("thead input").focus(function() {
+                    if (this.className == "search_init")
+                    {
+                        this.className = "";
+                        this.value = "";
+                    }
+                });
+
+                $("thead input").blur(function(i) {
+                    if (this.value == "")
+                    {
+                        this.className = "search_init";
+                        this.value = asInitVals[$("thead input").index(this)];
+                    }
+                });
+
+                $("thead input").keyup(function() {
+                    /* Filter on the column (the index) of this element */
+                    oTable.fnFilter(this.value, $("thead input").index(this));
+                   
+                });
+            });
+        </script>
+    </head>
+    <!--<body onblur="javascript:self.close();">-->
+    <body>
+        <div id="contenido">
+            <h1>{titulo}</h1>
+            <h2>{subtitulo}</h2>
+            <div id="mensaje">
+                {mensaje}
+            </div> <!-- fin mensaje-->   
+            {contenido}
+        </div><!-- fin contenido-->   
+        <div id="pie_pagina">
+            <img src="/sw2click/public/img/copyright.png" alt="" border="0" />
+        </div>
+    </body>
+</html>

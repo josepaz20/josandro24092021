@@ -1,0 +1,134 @@
+<div class="col-md-12 col-sm-12 col-xs-12 backgroundOscuro">
+    <div id="formBusq" class="backgroundOscuro form-horizontal form-label-left">
+        <fieldset>
+            <legend>Filtro de Cliente</legend>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tipoClienteBusq">TIPO CLIENTE *</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <select id="tipoClienteBusq" name="tipoClienteBusq" class="form-control"  required>
+                        <option value="">Seleccione...</option>
+                        <option value="1">Residencial</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urlBusq">BUSCAR POR *</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <select name="buscarPor" id="buscarPor" class="form-control">
+                        <option value="">Seleccione...</option>
+                        <option value="1">Nombres</option>
+                        <option value="2">Apellidos</option>
+                        <option value="3">Cedula</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="busqueda">BUSQUEDA *</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" name="busqueda" id="busqueda" class="form-control" required>
+                </div>
+            </div>
+        </fieldset>
+        <div class="ln_solid"></div>
+        <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                <button type="button" id="btnBuscar" name="btnBuscar" onclick="getCliente();" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
+            </div>
+        </div>
+        <div id="divInfoCliente"></div>
+    </div>
+    <div class="ln_solid"></div>
+    <form id="frmRegistrar" action="insertar" method="POST" onsubmit="return validarRegistrar()" class="form-horizontal form-label-left" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Informacion del Cambio de Titular</legend>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idServicio">ID SERVICIO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="idServicio" name="idServicio" value="" class="form-control" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tipopersona">TIPO PERSONA</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="tipopersona" name="tipopersona" value="Persona Natural" class="form-control" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="identificacion">IDENTIFICACION *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="number" id="identificacion" name="identificacion" min="0" onchange="existeIdentificacion()" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombres">NOMBRES *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="nombres" name="nombres" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="apellidos">APELLIDOS *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="apellidos" name="apellidos" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idDpto">DEPARTAMENTO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <select id="idDpto" name="idDpto" class="form-control" onchange="getMunicipios(this.value)" required>
+                        {listaDptos}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idMcpo">MUNICIPIO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <select id="idMcpo" name="idMcpo" class="form-control" required>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="direccion">DIRECCION *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="direccion" name="direccion" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="estrato">ESTRATO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="number" id="estrato" name="estrato" min="1" max="7" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="barrio">BARRIO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="barrio" name="barrio" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="celular">CELULAR *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="number" id="celular" name="celular" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">EMAIL *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="formato">FORMATO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="file" id="formato" name="formato" class="form-control" required>
+                </div>
+            </div>
+        </fieldset>
+        <div class="ln_solid"></div>
+        <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> Registrar Solicitud</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
+            </div>
+        </div>
+    </form>
+</div>

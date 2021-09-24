@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=100px, initial-scale=2.0" />
+
+        <title>Dobleclick::Software e Ingeniería</title>
+        <link href="/sw2click/public/css/plantilla.css?31Octubre2014" rel="stylesheet" type="text/css" />
+        <script src="/sw2click/public/js/modernizr.js" language="JavaScript"></script>
+        <script src="/sw2click/public/js/obtener_fecha_hora.js" language="JavaScript"></script>
+
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/jquery.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/jqueryUI.js"></script>
+        <link href="/sw2click/public/css/jqueryUI.css" rel="stylesheet" type="text/css" />
+
+        <script src="/sw2click/public/js/scriptsUsuarios.js?05Diciembre2015" language="JavaScript"></script>
+
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/jquery.dataTables.js?26Junio2014"></script>
+
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/tablas.css">
+
+
+        <script>
+            var asInitVals = new Array();
+            $(document).ready(function() {
+                oTable = $('#tablaUsuarios').dataTable({
+                    "iDisplayLength": 25,
+                    "sPaginationType": "full_numbers",
+                    "oLanguage": {
+                        "sLengthMenu": "MOSTRAR: _MENU_ REGISTROS POR PAGINA",
+                        "sZeroRecords": "NO SE HA ENCONTRADO INFORMACION",
+                        "sInfo": "MOSTRANDO <b>_START_</b> A <b>_END_</b> REGISTROS <br>TOTAL REGISTROS: <b>_TOTAL_</b> REGISTROS</b>",
+                        "sInfoEmpty": "MOSTRANDO 0 A 0 REGISTROS",
+                        "sInfoFiltered": "(FILTRADOS DE UN TOTAL DE <b>_MAX_</b> REGISTROS)",
+                        "sLoadingRecords": "CARGANDO...",
+                        "sProcessing": "EN PROCESO...",
+                        "sSearch": "BUSCAR:",
+                        "sEmptyTable": "NO HAY INFORMACION DISPONIBLE PARA LA TABLA",
+                        "oPaginate": {
+                            "sFirst": "Inicio",
+                            "sLast": "Fin",
+                            "sNext": "Siguiente",
+                            "sPrevious": "Anterior"
+                        }
+                    },
+                    "aaSorting": [[0, "desc"]]
+                });
+
+
+
+                $("thead input").each(function(i) {
+                    asInitVals[i] = this.value;
+                });
+
+                $("thead input").focus(function() {
+                    if (this.className == "search_init")
+                    {
+                        this.className = "";
+                        this.value = "";
+                    }
+                });
+
+                $("thead input").blur(function(i) {
+                    if (this.value == "")
+                    {
+                        this.className = "search_init";
+                        this.value = asInitVals[$("thead input").index(this)];
+                    }
+                });
+
+                $("thead input").keyup(function() {
+                    /* Filter on the column (the index) of this element */
+                    oTable.fnFilter(this.value, $("thead input").index(this));
+
+                });
+
+
+
+            });
+        </script>
+    </head>
+
+    <body onload="mostrarTiempo()">
+        <div id="contenedor">
+
+            <div id="cabecera">
+                <div id="logo">
+                    <img src="/sw2click/public/img/logoMarcaDobleclick.jpg" alt="" width="250" style="box-shadow: 5px 5px 5px grey; border-radius: 10px" title="Dobleclick Software e Ingenieria"/>
+                </div><!-- fin logo-->
+                <div id="info_cabecera">
+                    <form name="form_info_cabecera">
+                        <input type="text" name="usuario" value="{user_name}" onfocus = "this.blur()" />
+                        <input type="text" name="hora" id="hora" onfocus = "this.blur()"/><br>
+                        <input type="text" name="cargo" value="{user_charge}" id="cargo" onfocus = "this.blur()"/>
+                        <input type="text" name="fecha" id="fecha" value="" onfocus = "this.blur()"/>
+                    </form>
+                    <div id="logout">
+                        <a href="/sw2click/modulos/usuarios/cerrarSesion">
+                            Cerrar Sesion
+                        </a>
+                    </div>   
+                </div><!-- fin info_cabecera-->
+
+            </div><!-- fin cabecera-->
+            <div id="cuerpo" class="clearfix">
+                <div id="menu">
+                    <a href="/sw2click/modulos/secciones/seccionGeneral" title="Seccion general">Inicio</a>
+                    <!--                    <a href="/sw2click/modulos/secciones/seccion_registro" title="Gestion de Informacion Basica">Registro</a>
+                                        <a href="/sw2click/modulos/secciones/seccion_servicios" title="Gestion de Servicios">Contratos</a>
+                                        <a href="/sw2click/modulos/secciones/seccion_planes" title="Gestion de Planes">Planes</a>
+                                        <a href="/sw2click/modulos/secciones/seccion_facturacion" title="Gestion de Facturacion">Facturacion</a>
+                                        <a href="/sw2click/modulos/secciones/seccion_recaudos" title="Gestion de Recaudos">Recaudos</a>
+                                        <a href="/sw2click/modulos/secciones/seccion_cuenta" title="Mi cuenta">Mi Cuenta</a>-->
+                </div>
+                <!--                                <div id="menu_lateral">
+                                                    <ul>
+                                                        <li><a href="/sw2click/modulos/usuarios/administracion?tipo=Residencial">Usuarios Residenciales</a></li>
+                                                        <li><a href="/sw2click/modulos/usuarios/administracion?tipo=Corporativo">Usuarios Corporativos</a></li>
+                                                        <li><a href="/sw2click/modulos/usuarios/administracion?tipo=Empleado">Usuarios Empleados</a></li>
+                                                        <li><a href="/sw2click/modulos/permisos/principal">Permisos de Usuarios</a></li>
+                                                    </ul>
+                                                </div>-->
+                <div id="contenido" style="margin-left: 3%">
+                    <h1>{titulo}</h1>
+                    <h2>{subtitulo}</h2>
+                    <div id="mensaje">
+                        {mensaje}
+                    </div> <!-- fin mensaje-->   
+                    {contenido}
+                </div><!-- fin contenido-->   
+            </div><!-- fin cuerpo-->
+
+        </div>	
+        <div id="pie_pagina">
+            <img src="/sw2click/public/img/copyright.png" alt="" border="0" />
+        </div>
+    </body>
+</html>

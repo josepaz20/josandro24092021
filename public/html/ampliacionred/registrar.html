@@ -1,0 +1,60 @@
+<div class="col-md-12 col-sm-12 col-xs-12 backgroundOscuro">
+    <form id="frmRegistrar" action="insertar" method="POST" onsubmit="return validarRegistrar()" class="form-horizontal form-label-left" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Registro de la Ampliación de Red</legend>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idDpto">DEPARTAMENTO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <select id="idDpto" name="idDpto" onchange="getMunicipios(this.value)" class="form-control" required>
+                        {listaDepartamentos}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idMcpo">MUNICIPIO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <select id="idMcpo" name="idMcpo" class="form-control" required>
+                        <option value="">Seleccione...</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="direccion">DIRECCION *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="direccion" name="direccion" value="" maxlength="100" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="coordenadas">COORDENADAS *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="coordenadas" name="coordenadas" value="" maxlength="100" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="justificacion">JUSTIFICACION *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <textarea id="justificacion" name="justificacion" maxlength="100" class="form-control" required></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contusuariosbenficio">USUARIO BENEFICIADOS *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="number" id="contusuariosbenficio" name="contusuariosbenficio" value="" min="0" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="beneficioeconomico">BENEFICIO ECONOMICO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="number" id="beneficioeconomico" name="beneficioeconomico" value="" min="0" class="form-control" required>
+                </div>
+            </div>
+        </fieldset>
+        <div class="ln_solid"></div>
+        <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> Registrar Ampliación</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
+            </div>
+        </div>
+    </form>
+</div>

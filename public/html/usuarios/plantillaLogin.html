@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Dobleclick Software e Ingeniería</title>
+        <link rel="stylesheet" type="text/css" href="../../public/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/plantilla_nomina.css?01Nov2017"/>
+        <link rel="stylesheet" type="text/css" href="../../public/css/font-awesome.min.css?01Nov2017"/>
+        <link rel="stylesheet" type="text/css" href="../../public/css/tabla_minimalista.css?01Nov2017">
+        <link rel="stylesheet" type="text/css" href="../../public/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/buttons.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/fixedHeader.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/responsive.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/scroller.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/custom.css?01Nov2017">
+        <script type="text/javascript" charset="utf-8" src="../../public/js/modernizr.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/obtener_fecha_hora.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/jquery.dataTables.min.js?06Mayo2017"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/jquery.blockUI.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/bootstrap.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/custom.js?01Nov2017"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/dataTables.responsive.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/dataTables.scroller.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/responsive.bootstrap.js"></script>
+
+
+        <script>
+            function capLock(e) {
+                kc = e.keyCode ? e.keyCode : e.which;
+                sk = e.shiftKey ? e.shiftKey : ((kc == 16) ? true : false);
+                if (((kc >= 65 && kc <= 90) && !sk) || ((kc >= 97 && kc <= 122) && sk)) {
+                    document.getElementById('mayusculas').removeAttribute('hidden');
+                } else {
+                    document.getElementById('mayusculas').setAttribute('hidden', 'true');
+                }
+            }
+        </script>
+    </head>
+    <body id="contenedor" onload="mostrarTiempo()" class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <div id="cabecera">
+                    <div id="logo">
+                        <img src="/sw2click/public/img/logoMarcaDobleclick.jpg" alt="" width="250" style="box-shadow: 5px 5px 5px grey; border-radius: 10px" title="Dobleclick Software e Ingenieria"/>
+                    </div><!-- fin logo-->
+                    <div id="info_cabecera">
+                        <form name="form_info_cabecera" style="margin-top: -20px;">
+                            <input type="text" name="usuario" value="{user_name}" onfocus = "this.blur()" />
+                            <input type="text" name="hora" id="hora" onfocus = "this.blur()"/><br>
+                            <input type="text" name="cargo" value="{user_charge}" id="cargo" onfocus = "this.blur()"/>
+                            <input type="text" name="fecha" id="fecha" value="" onfocus = "this.blur()"/>
+                        </form>
+                    </div><!-- fin info_cabecera-->
+                </div><!-- fin cabecera-->
+                <div id="cuerpo" class="clearfix">
+                    <div role="main" style="padding: 0px 50px 20px 50px">
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            <center>{contenido}</center>
+                        </div>
+                    </div><!-- fin cuerpo-->
+                </div><!-- fin cuerpo-->
+            </div>
+        </div>
+        <div id="pie_pagina">
+            <img src="../../public/img/copyright.png" alt="" border="0" />
+        </div>
+    </body>
+</html>

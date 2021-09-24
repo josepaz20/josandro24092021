@@ -1,0 +1,8 @@
+RewriteEngine on
+RewriteRule ^modulos/usuarios/  modulos/usuarios/controlador.php
+RewriteRule ^modulos/secciones/  modulos/secciones/controlador.php
+RewriteRule ^modulos/cambiostitular/  modulos/cambiostitular/controlador.php
+RewriteRule ^modulos/compras/  modulos/compras/controlador.php
+RewriteRule ^modulos/ampliacionred/ modulos/ampliacionred/controlador.php
+RewriteRule ^modulos/viabilidadampliacion/ modulos/viabilidadampliacion/controlador.php
+RewriteRule ^modulos/corporativo/ modulos/corporativo/controlador.php

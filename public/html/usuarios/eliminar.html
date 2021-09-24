@@ -1,0 +1,25 @@
+<div id="formulario">
+<form name="form_usuario" action="{DELETE}" method="POST">
+        <label for="login">Usuario</label>
+        <input type="text" name="login" id="login" value="{login}" readonly="readonly"><br>
+   
+        <label for="nombres">Nombres</label>
+        <input type="text" name="nombres" id="nombres" value="{nombres}" readonly="readonly"><br>
+
+        <label for="apellidos">Apellidos</label>
+        <input type="text" name="apellidos" id="apellidos" value="{apellidos}" readonly="readonly"><br>
+
+        <label for="estado">Estado</label>
+        <input type="text" name="estado" id="estado" value="{estado}" readonly="readonly"><br>
+
+
+        <input type="hidden" name="form_name" value="eliminar">
+   		<input type="hidden" name="id_usuario" value="{id_usuario}">
+    <!--boton-->
+ 
+       <input type="button" name="enviar" id="enviar" value="Guardar Cambios" class="boton" onclick="validar_form_usuarios()">
+       <input type="button" name="cancelar" value="Regresar" class="boton"
+       		onClick="location.href ='javascript:history.back()'">
+
+</form>
+</div>

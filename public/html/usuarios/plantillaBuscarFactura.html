@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Dobleclick::Software e Ingeniería</title>
+<link href="/sw2click/public/css/plantilla.css" rel="stylesheet" type="text/css" />
+<script src="/sw2click/public/js/modernizr.js" language="JavaScript"> </script>
+<script src="/sw2click/public/js/obtener_fecha_hora.js" language="JavaScript"> </script>
+<script src="/sw2click/public/js/validar_formularios.js" language="JavaScript"> </script>
+<script src="/sw2click/public/js/validar_html5.js" language="JavaScript"> </script>
+
+</head>
+
+<body onload="mostrarTiempo()">
+     <div id="contenedor">
+    
+        <div id="cabecera">
+    		<div id="logo">
+            	<img src="/sw2click/public/img/logo.png" alt="" title="Dobleclick Software e Ingenieria" border="0" />
+            </div><!-- fin logo-->
+            <div id="info_cabecera">
+                <form name="form_info_cabecera">
+                    <input type="text" name="usuario" value="{user_name}" onfocus = "this.blur()" />
+                    <input type="text" name="hora" id="hora" onfocus = "this.blur()"/><br>
+                    <input type="text" name="cargo" value="{user_charge}" id="cargo" onfocus = "this.blur()"/>
+                    <input type="text" name="fecha" id="fecha" value="" onfocus = "this.blur()"/>
+                </form>
+                <div id="logout">
+                	<a href="/sw2click/modulos/usuarios/cerrar_sesion">
+                    	<img src="/sw2click/public/img/logout.png" alt="" title="cerrar sesion" border="0" />
+                    </a>
+            	</div>   
+            </div><!-- fin info_cabecera-->
+            
+        </div><!-- fin cabecera-->
+        <div id="cuerpo" class="clearfix">
+        	<div id="menu">
+            	<a href="/sw2click/modulos/secciones/seccion_general" title="Seccion general">Inicio</a>
+                <a href="/sw2click/modulos/usuarios/buscarFactura" title="Descargar Facturas de Cobro">Descargar Factura</a>
+            	<a href="/sw2click/modulos/secciones/seccion_cuenta" title="Mi cuenta">Mi Cuenta</a>
+            </div>
+            <div id="menu_lateral">
+            	<ul>
+                    <li><a href="/sw2click/modulos/usuarios/buscarFactura" title="Descargar Facturas de Cobro">Descargar Factura</a></li>
+                </ul>
+        	</div>
+            <div id="contenido">
+            	<h1>{titulo}</h1>
+                  <h2>{subtitulo}</h2>
+                   {contenido}
+                  <div id="mensaje">
+                    {mensaje}
+                  </div> <!-- fin mensaje-->   
+            </div><!-- fin contenido-->   
+        </div><!-- fin cuerpo-->
+    
+    </div>	
+    <div id="pie_pagina">
+    	<img src="/sw2click/public/img/copyright.jpg" alt="" border="0" />
+	</div>
+</body>
+</html>

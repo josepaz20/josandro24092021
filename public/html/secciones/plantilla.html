@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Dobleclick::Software e Ingeniería</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href="/sw2click/public/css/secciones.css?17Marzo2021" rel="stylesheet" type="text/css" />
+        <link href="/sw2click/public/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <script src="/sw2click/public/js/modernizr.js"></script>
+        <script src="/sw2click/public/js/obtener_fecha_hora.js"></script>
+        <script src="/sw2click/public/js/scriptsSecciones.js?27Mayo2014"></script>
+        <script src="/sw2click/public/js/jquery.js"></script>
+        <!--<script src="/sw2click/public/js/snowfall.jquery.js"></script>-->
+        <script src="/sw2click/public/js/jqueryUI.js"></script>
+
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/jquery.tooltipster.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/tooltipster.css">
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/jqueryUI.css">
+        <script>
+            $(document).ready(function() {
+                $('.tooltip').tooltipster({
+                    animation: 'swing',
+                    delay: 300,
+                    position: 'right',
+                    theme: '.tooltipster-2click',
+                    arrowColor: '#0F0',
+                    touchDevices: true,
+                    trigger: 'click'
+                });
+                //                document.body.className = "lightBg";
+                //                $(document).snowfall('clear');
+                //                $(document).snowfall({
+                //                    shadow: true,
+                //                    round: true,
+                //                    minSize: 5,
+                //                    maxSize: 8
+                //                });
+                $("#msg_").mouseover(function(){
+                    $("#dialogo_1").dialog({
+                        width: 550, 
+                        height: 200, 
+                        show: {effect: "bounce", duration: 1500},
+                        hide: {effect: "explode", duration: 1000},
+                        resizable: "false", 
+                        position: "center", 
+                        modal: "true",
+                        closeOnEscape: "true", 
+                        closeText: "Cerrar"
+                    });
+                });
+                $("#msg_").mouseover(function(){
+                    $("#dialogo_2").dialog({
+                        width: 550, 
+                        height: 220, 
+                        show: {effect: "bounce", duration: 1500},
+                        hide: {effect: "explode", duration: 1000},
+                        resizable: "false", 
+                        position: "center", 
+                        modal: "true",
+                        closeOnEscape: "true", 
+                        closeText: "Cerrar"
+                    });
+                });
+            });
+        </script>        
+    </head>
+    <body onload="mostrarTiempo()">
+        <div id="contenedor">
+
+            <div id="cabecera">
+                <div id="logo">
+                    <img src="/sw2click/public/img/logoMarcaDobleclick.jpg" alt="" width="250" style="box-shadow: 5px 5px 5px grey; border-radius: 10px" title="Dobleclick Software e Ingenieria"/>
+                </div>
+                <div id="info_cabecera">
+                    <form name="form_info_cabecera">
+                        <input type="text" name="usuario" value="{user_name}" onfocus = "this.blur()" />
+                        <input type="text" name="hora" id="hora" onfocus = "this.blur()"/><br>
+                        <input type="text" name="cargo" value="{user_charge}" id="cargo" onfocus = "this.blur()"/>
+                        <input type="text" name="fecha" id="fecha" value="" onfocus = "this.blur()"/>
+                    </form>
+                    <div id="logout">
+                        <a href="/sw2click/modulos/usuarios/cerrarSesion" title="Cerrar Sesion">
+                            Cerrar Sesion
+                        </a>
+                    </div>   
+                </div><!-- fin info_cabecera-->
+                <div id="nombreSistema">
+                    Sistema de Gestión Empresarial <br> 
+                    <label>J O S A N D R O</label> <br>
+                </div>
+
+                {desactivacionD}
+
+            </div><!-- fin cabecera-->
+            <div id="cuerpo" class="clearfix">
+                <!--                <div style="text-align: center; margin-top: -10px">
+                                    <img src="/sw2click/public/img/navidad.gif" alt="" title="Feliz Navidad y Prospero Año Nuevo." style="margin-top: -10px; padding-left: 10px">
+                                    <img src="/sw2click/public/img/navidad.gif" alt="" title="Feliz Navidad y Prospero Año Nuevo.">
+                                </div>-->
+                <div id="menu">
+                    <a href="/sw2click/modulos/secciones/seccionGeneral" title="Seccion general">Inicio</a>
+                    <!--  
+                    {menuAdministrador}
+                                    <a href="/sw2click/modulos/secciones/seccion_construccion" title="Atencion al cliente">Atención al Cliente</a>
+                    <a href="/sw2click/modulos/secciones/seccion_cuenta" title="Mi cuenta">Mi Cuenta</a>
+                    <a href="/sw2click/modulos/directorio/principal" title="Directorio">Directorio</a>
+                    -->
+                </div>
+                <div id="contenido">
+                    <h1>{titulo}</h1>
+                    <h2>{subtitulo}</h2>
+                    {contenido}
+                </div><!-- fin contenido-->   
+            </div><!-- fin cuerpo-->
+
+            <div id="dialogo_1" title="Mensaje de JOSANDRO" style="
+                 display: none; 
+                 font-family: Arial, Helvetica, sans-serif;
+                 color: #EEE;
+                 line-height: 18px;
+                 font-size: 15px;
+                 text-align: justify">
+                <img src="/sw2click/public/img/logo.png" alt="" style="float: left"> 
+                <p>Estimado Técnico, recuerde que nuestro compromiso es la <b>CALIDAD</b></p> <br>
+                <p>Su trabajo es su carta de presentación personal, póngale ganas a su labor y realice su trabajo lo mejor posible.</p>
+            </div>
+            <div id="dialogo_2" title="Mensaje de JOSANDRO" style="
+                 display: none; 
+                 font-family: Arial, Helvetica, sans-serif;
+                 color: #EEE;
+                 line-height: 18px;
+                 font-size: 15px;
+                 text-align: justify">
+                <img src="/sw2click/public/img/moduloFinanciero.png" alt="" style="float: left"> 
+                <p>Estimado Técnico, no se olvide de subir y revisar sus cuentas financieras en el sistema</p> <br>
+                <p>¡¡¡ Evitese problemas a la hora de cobrar su pago mensual. !!!</p>
+            </div>
+
+        </div>	
+        <div id="pie_pagina">
+            <img src="/sw2click/public/img/copyright.png" alt="" border="0" />
+        </div>
+    </body>
+</html>

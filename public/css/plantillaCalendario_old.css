@@ -1,0 +1,19 @@
+.tablaCalendario {
+    width: 100%; 
+    margin: 0; 
+    border-spacing: 5px; 
+    box-sizing: border-box;
+    text-align: center;
+    background: #FFF;
+}
+.tablaCalendario td {
+    padding: 2px 0px;
+    cursor: pointer;
+}    
+.diaSeleccionado {
+    background: #FF0;
+}
+.diaDeshabilitado {
+    background: #999;
+}
+

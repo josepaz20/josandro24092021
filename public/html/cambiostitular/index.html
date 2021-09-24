@@ -1,0 +1,78 @@
+<div class="bandaOpciones">
+    {btnRegistrar}
+    <a href="http://josandro.dobleclick.net.co/bannersFacturas/FORMATO_CAMBIO_DE_TITULAR.pdf" target="_blank" class="btn btn-primary"><i class="fa fa-file-pdf-o"></i> Descargar Formato en PDF</a>
+</div> 
+<div class="ln_solid"></div>
+<div class="row backgroundOscuro">
+    <div class="col-md-12 col-sm-12 col-xs-12" style="overflow-x: scroll; font-size: 11px">
+        <br>
+        <table id="tabla" class="table table-striped table-bordered nowrap" cellspacing="0" style="width: 100%">
+            <thead>
+                <tr style="color: white;">
+                    <th style="width: 5% !important">ID</th>
+                    <th style="width: 10% !important">OPC</th>
+                    <th style="width: 20% !important">SERVICIO</th>
+                    <th style="width: 20% !important">CLIENTE ANTIGUO</th>
+                    <th style="width: 20% !important">IDENTIFICACION</th>
+                    <th style="width: 20% !important">CLIENTE NUEVO</th>
+                    <th style="width: 20% !important">IDENTIFICACION</th>
+                    <th style="width: 15% !important">ESTADO</th>
+                    <th style="width: 15% !important">REGISTRADO POR</th>
+                    <th style="width: 15% !important">FECHA REGISTRO</th>
+                </tr>
+            </thead>
+            <tbody>{tablaCambiosTitular}</tbody>
+            <tfoot></tfoot>
+        </table> <br>
+    </div>
+</div>
+
+<div class="modal fade" id="modalFormulario" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="overflow-y: scroll">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Formulario</h4>
+            </div>
+            <div class="modal-body">
+                <div style="padding: 10px" class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div id="divContenido"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <b>DOBLECLICK SOFTWARE E INGENIERIA S.A.S. &copy Copyright</b>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalSeleccionarCliente" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="overflow-y: scroll">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Seleccionar Cliente</h4>
+            </div>
+            <div class="modal-body">
+                <div style="padding: 10px" class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div id="divSeleccionarCliente"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <b>DOBLECLICK SOFTWARE E INGENIERIA S.A.S. &copy Copyright</b>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="msgBloqueo" style="display:none;"> 
+    SU SOLICITUD ESTA SIENDO PROCESADA, <br>POR FAVOR ESPERE...
+</div>

@@ -1,0 +1,80 @@
+<div id="formulario">
+    <form name="form_usuario" action="modificar" method="POST" onsubmit=" return confirm('¿ Actualizar este usuario ?')">
+        <label for="login">Usuario</label>
+        <input type="text" name="login" id="login" value="{login}" readonly><br>
+   
+        <label for="password">Contrasena</label>
+        <input type="password" name="password" id="password"> *<br><br>
+        <fieldset>
+            <legend>Privilegios</legend>
+            
+            {listaModulos}
+            
+<!--            <label>Registro</label>
+            <input  id="1" type="checkbox" name="permiso[]" value="1" {check1}>
+            <label for="1"><span></span></label><br> 
+                  <label>Contratos</label>
+            <input id="2"  type="checkbox" name="permiso[]" value="2" {check2}>
+            <label for="2"><span></span></label><br> 
+              <label>Planes</label>
+            <input   id="3" type="checkbox" name="permiso[]" value="3" {check3}>
+            <label for="3"><span></span></label><br> 
+                 <label>Facturacion</label>
+            <input  id="4"  type="checkbox" name="permiso[]" value="4" {check4}>
+            <label for="4"><span></span></label><br> 
+                 <label>Recaudos</label>
+            <input  id="5"  type="checkbox" name="permiso[]" value="5" {check5}>
+            <label for="5"><span></span></label><br> 
+                 <label>Diretorio</label>
+            <input  id="6"  type="checkbox" name="permiso[]" value="7" {check6}>
+            <label for="6"><span></span></label><br> 
+                 <label>Mod. Marketing</label>
+            <input  id="7"  type="checkbox" name="permiso[]" value="8" {check7}>
+            <label for="7"><span></span></label><br> 
+                 <label>Mod.Financiero</label>
+            <input  id="8"  type="checkbox" name="permiso[]" value="9" {check8}>
+            <label for="8"><span></span></label><br> 
+            <label>Mod. Ctrl Nodos</label>
+            <input  id="9"  type="checkbox" name="permiso[]" value="10" {check9}> 
+            <label for="9"><span></span></label><br>
+            <label>Mod. Inventario</label>
+            <input  id="10"  type="checkbox" name="permiso[]" value="11" {check10}>
+            <label for="10"><span></span></label> <br>
+            <label>Mod. Instalaciones</label>
+            <input  id="11"  type="checkbox" name="permiso[]" value="12" {check11}>
+            <label for="11"><span></span></label> <br>
+            <label>Mod. CRM</label>
+            <input  id="12"  type="checkbox" name="permiso[]" value="13" {check12}> 
+            <label for="12"><span></span></label><br>
+            <label>Mod. Evaluaciones</label>
+            <input  id="13"  type="checkbox" name="permiso[]" value="14" {check13}>
+            <label for="13"><span></span></label> <br>
+            <label>Mod. Contabilidad</label>
+            <input  id="14"  type="checkbox" name="permiso[]" value="15" {check14}> 
+            <label for="14"><span></span></label><br>
+            <label>Agenda de Actividades</label>
+            <input  id="15"  type="checkbox" name="permiso[]" value="16" {check15}>
+            <label for="15"><span></span></label> <br>
+            <label>Talento Humano</label>
+            <input  id="16"  type="checkbox" name="permiso[]" value="17" {check16}> 
+            <label for="16"><span></span></label><br>
+            <label>Reportes</label>
+            <input  id="17"  type="checkbox" name="permiso[]" value="18" {check17}> 
+            <label for="17"><span></span></label><br>
+            <label>Gestion de Usuarios</label>
+            <input  id="18"  type="checkbox" name="permiso[]" value="19" {check19}>
+            <label for="18"><span></span></label> <br>-->
+            
+        </fieldset>
+       
+        <input type="hidden" name="form_name" value="editar">
+   		<input type="hidden" name="idUsuario" value="{idUsuario}">
+   		<input type=hidden name=loginOld value="{login}">
+    <!--boton-->
+ 
+       <input type="submit" name="enviar" id="enviar" value="Actualizar" class="boton">
+       <input type="button" name="cancelar" value="Nuevo Modulo" class="boton" onClick="nuevoModulo({idUsuario})">
+       <input type="button" name="cancelar" value="<<< Regresar" class="boton" onClick="location.href ='javascript:history.back()'">
+
+</form>
+</div><br><br><br><br>

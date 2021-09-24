@@ -1,0 +1,109 @@
+<div class="col-md-12 col-sm-12 col-xs-12 backgroundOscuro">
+    <form id="frmRegistrar" action="update" method="POST" onsubmit="return validarEditar()" class="form-horizontal form-label-left" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Actualización de la Ampliacion de Red</legend>
+            <div class="hidden">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idAmpliacion">ID AMPLIACION *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="idAmpliacion" name="idAmpliacion" value= "{idAmpliacion}" class="form-control" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idDpto">DEPARTAMENTO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <select id="idDpto" name="idDpto" onchange="getMunicipios(this.value)" class="form-control" required>
+                        {listaDepartamentos}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idMcpo">MUNICIPIO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <select id="idMcpo" name="idMcpo" class="form-control" required>
+                        {listaMunicipios}
+                        
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="direccion">DIRECCION *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="direccion" name="direccion" value="{direccion}" maxlength="100" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="coordenadas">COORDENADAS *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="coordenadas" name="coordenadas" value ="{coordenadas}"  maxlength="100" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="justificacion">JUSTIFICACION *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <textarea id="justificacion" name="justificacion"   class="form-control" required>{justificacion}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contusuariosbenficio">USUARIO BENEFICIADOS *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                   <input id="contusuariosbenficio" name="contusuariosbenficio" value ="{contusuariosbenficio}"  maxlength="100" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="beneficioeconomico">BENEFICIO ECONOMICO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input  id="beneficioeconomico" name="beneficioeconomico" value="{beneficioeconomico}"  class="form-control" required>
+                </div>
+            </div>
+            <div class="hidden">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="estado">ESTADO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input  id="estado" name="estado" value="{estado}"  class="form-control" readonly>
+                </div>
+            </div>
+            <div class="hidden">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="registradopor">REGISTRADO POR *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input  id="registradopor" name="registradopor" value="{registradopor}"  class="form-control" readonly>
+                </div>
+            </div>
+            <div class="hidden">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modificadopor">MODIFICADO POR *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input  id="modificadopor" name="modificadopor" value="{modificadopor}"  class="form-control" readonly>
+                </div>
+            </div>
+             <div class="hidden">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="confirmadopor">CONFIRMADO POR *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input  id="confirmadopor" name="confirmadopor" value="{confirmadopor}"  class="form-control" readonly>
+                </div>
+            </div>
+            <div class="hidden">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fechahorareg"> FECHA DE REGISTRO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input  id="fechahorareg" name="fechahorareg" value="{fechahorareg}"  class="form-control" readonly>
+                </div>
+            </div>
+            <div class="hidden">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fechahoramod"> FECHA DE MODIFICACION *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input  id="fechahoramod" name="fechahoramod" value="{fechahoramod}"  class="form-control" readonly>
+                </div>
+            </div>
+            <div class="hidden">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fechahoraconfirm"> FECHA DE CONFIRMACION *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input  id="fechahoraconfirm" name="fechahoraconfirm" value="{fechahoraconfirm}"  class="form-control" readonly>
+                </div>
+            </div>
+        </fieldset>
+        <div class="ln_solid"></div>
+        <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> Actualizar Ampliación</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
+            </div>
+        </div>
+    </form>
+</div>

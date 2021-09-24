@@ -1,0 +1,74 @@
+<div class="col-md-12 col-sm-12 col-xs-12 backgroundOscuro">
+  <div class="ln_solid"></div>
+  <fieldset>
+      <legend>Aprobaciones Registradas</legend>
+      <div style="overflow-x: scroll">
+        <table id="tblDetalle" class="table table-bordered table-striped nowrap" cellspacing="0">
+            <thead>
+                <tr style="color: white;">
+                    <th>ID</th>
+                    <th>APROBADO POR</th>
+                    <th>FECHA APROBACION</th>
+                </tr>
+            </thead>
+            <tbody style="background: white">
+                {tablaaprobaciones}
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+      </div>
+  </fieldset>
+  <div class="ln_solid"></div>
+  <form id="frmAprobacion" action="addaprobacion" method="POST" onsubmit="return validarAddAprobacion()" enctype="multipart/form-data" class="form-horizontal form-label-left">
+    <fieldset>
+        <legend>Informacion de la Compra</legend>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idCompra">ID COMPRA</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input id="idCompra" name="idCompra" value="{idCompra}" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="estado">ESTADO</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input id="estado" name="estado" value="{estado}" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="registradopor">REGISTRADO POR</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input id="registradopor" name="registradopor" value="{registradopor}" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fechahorareg">FECHA REGISTRO</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input id="fechahorareg" name="fechahorareg" value="{fechahorareg}" class="form-control" readonly>
+            </div>
+        </div>
+    </fieldset>
+    <div class="ln_solid"></div>
+    <fieldset>
+        <legend>Registrar Aprobacion</legend>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="usuario">APROBADO POR</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input id="aprobadopor" name="aprobadopor" value="{aprobadopor}" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="respaldo">RESPALDO</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="file" id="respaldo" name="respaldo" class="form-control">
+            </div>
+        </div>
+    </fieldset>
+    <div class="ln_solid"></div>
+    <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
+            <button type="submit" class="btn btn-success"><i class="fa fa-thumbs-up"></i> Registrar Aprobacion</button>
+        </div>
+    </div>
+  </form>
+</div>

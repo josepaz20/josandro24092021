@@ -1,0 +1,33 @@
+<div class="col-md-12 col-sm-12 col-xs-12 backgroundOscuro">
+  <div class="ln_solid"></div>
+  <fieldset>
+      <legend>Informacion del Item</legend>
+      <div style="overflow-x: scroll">
+        <table id="tblDetalle" class="table table-bordered table-striped nowrap" cellspacing="0" width="100%">
+            <thead>
+                <tr style="color: white;">
+                    <th>ID</th>
+                    <th></th>
+                    <th>ESTADO</th>
+                    <th>TIPO ITEM</th>
+                    <th>DESCRIPCION</th>
+                    <th>CANTIDAD</th>
+                    <th>VALOR UNITARIO</th>
+                    <th>JUSTIFICACION</th>
+                    <th>FECHA LIMITE</th>
+                </tr>
+            </thead>
+            <tbody style="background: white">
+                {tablaitems}
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+      </div>
+  </fieldset>
+  <div class="ln_solid"></div>
+  <div class="form-group">
+      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+          <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
+      </div>
+  </div>
+</div>
