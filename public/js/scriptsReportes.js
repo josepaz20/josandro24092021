@@ -145,3 +145,42 @@ function descargarArchivo() {
         alert("HA OCURRIDO UN ERROR EN EL SISTEMA ! ! ! ");
     }
 }
+
+function validarResidencial() {
+
+    if ($.trim($("#cedula").val()) === '' && $.trim($("#clientesBusq").val()) === '') {
+        alert("POR FAVOR INGRESE LA IDENTIFICACION O LLENE EL CAMPO DE CLIENTE CON LA AYUDA DE AUTOCOMPLETAR.");
+        return false;
+    }
+    if ($.trim($("#cedula").val()) !== '') {
+        return true;
+    } else {
+        if ($("#clientesBusq").val().indexOf('--') !== -1) {
+            return true;
+        } else {
+            alert("POR FAVOR LLENE EL CAMPO CLIENTE CON LA AYUDA DE AUTOCOMPLETAR.");
+            $("#clientesBusq").focus();
+            return false;
+        }
+    }
+
+}
+function validarCorporativo() {
+
+    if ($.trim($("#nit").val()) === '' && $.trim($("#clientesCorpBusq").val()) === '') {
+        alert("POR FAVOR INGRESE LA IDENTIFICACION O LLENE EL CAMPO DE CLIENTE CON LA AYUDA DE AUTOCOMPLETAR.");
+        return false;
+    }
+    if ($.trim($("#nit").val()) !== '') {
+        return true;
+    } else {
+        if ($("#clientesCorpBusq").val().indexOf('--') !== -1) {
+            return true;
+        } else {
+            alert("POR FAVOR LLENE EL CAMPO CLIENTE CON LA AYUDA DE AUTOCOMPLETAR.");
+            $("#clientesCorpBusq").focus();
+            return false;
+        }
+    }
+}
+

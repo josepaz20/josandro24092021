@@ -1,0 +1,29 @@
+
+<div class="col-md-12 col-sm-12 col-xs-12 backgroundOscuro">
+    <form action="insertarc" method="POST" onsubmit="return validarRegistrarCorporativo()" class="form-horizontal form-label-left" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Información Nuevo Mensaje</legend>  
+            <div class="form-group">            
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="celular1">CELULAR</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">               
+                    <input type="number" min="0"  id="celular1" name="celular1"  value="" placeholder="Ej:3xxxxxxxxx"  class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="observacion">MENSAJE</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <textarea id="observacion" name="observacion" maxlength="100" style="text-transform: uppercase" class="form-control"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3">                
+                    <fieldset>
+                        <legend>Recuerde que si el mensaje supera los 150 caracteres será enviado en 2 partes</legend>    
+                    </fieldset>                    
+                    <button type="submit" class="btn btn-success"> Enviar Mensaje</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

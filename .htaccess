@@ -6,3 +6,9 @@ RewriteRule ^modulos/compras/  modulos/compras/controlador.php
 RewriteRule ^modulos/ampliacionred/ modulos/ampliacionred/controlador.php
 RewriteRule ^modulos/viabilidadampliacion/ modulos/viabilidadampliacion/controlador.php
 RewriteRule ^modulos/corporativo/ modulos/corporativo/controlador.php
+RewriteRule ^modulos/usuario/ modulos/usuario/controlador.php
+RewriteRule ^modulos/enviar_mensajes_pbx/ modulos/enviar_mensajes_pbx/controlador.php
+RewriteRule ^modulos/directorio/ modulos/directorio/controlador.php
+RewriteRule ^modulos/cuidadoalcliente/ modulos/cuidadoalcliente/controlador.php
+RewriteRule ^modulos/cargoempleado/ modulos/cargoempleado/controlador.php
+RewriteRule ^modulos/reportes/ modulos/reportes/controlador.php

@@ -1,0 +1,103 @@
+<a class="btn btn-success" href="../secciones/seccionReportes"><i class="fa fa-arrow-left"></i> Regresar</a>
+<div class="ln_solid"></div>
+<form name="frmReporte" id="frmReporte" method="POST" action="generarinforme" onsubmit="return validarGeneracion();" class="form-horizontal form-label-left backgroundOscuro">
+    <fieldset>
+        <legend>Caracteristicas del Reporte</legend>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tipoReporte">TIPO DE REPORTE *</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <select name="tipoReporte" id="tipoReporte" onchange="setTipoReporte()" class="form-control" required>
+                    <option value="">Seleccione...</option>
+                    <!--<option value="1">Informe Facturas</option>-->
+                    <option value="2">Informe Ingresos</option>
+                    <option value="5">Informe Cartera Proformas</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="anio">ANIO *</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <select name="anio" id="anio" class="form-control" required>
+                    <option value="">Seleccione...</option>
+                    <option>2018</option>
+                    <option>2019</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mes">MES</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <select name="mes" id="mes" class="form-control" required>
+                    <option value="">Seleccione...</option>
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="segmento">SEGMENTO *</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <select name="segmento" id="segmento" class="form-control" required>
+                    <option value="">Seleccione...</option>
+                    <option>Masivo Hogar</option>
+                    <option>Masivo Negocios</option>
+                    <option>Empresarial</option>
+                    <option>Proyectos</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fechaIni">FECHA INICIO *</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input type="date" id="fechaInicio" name="fechaInicio" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fechaFin">FECHA FIN *</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input type="date" id="fechaFin" name="fechaFin" class="form-control" required>
+            </div>
+        </div>
+<!--        <div id="divRepoIngresos" class="form-group" hidden>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tipoFecha">GENERAR POR *</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <select name="tipoFecha" id="tipoFecha" class="form-control">
+                    <option value="">Seleccione...</option>
+                    <option>Fecha de Cobro</option>
+                    <option>Fecha de Pago</option>
+                    <option>Fecha de Registro</option>
+                </select>
+            </div>
+        </div>-->
+        <div id="divRepoFacturas" class="form-group" hidden>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="estado">ESTADO FACTURAS</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <select name="estado" id="estado" class="form-control">
+                    <option value="">Seleccione...</option>
+                    <option>Anulada</option>
+                    <option>En Deuda</option>
+                    <option>Pagado</option>
+                    <option>Sin Pago</option>
+                </select>
+            </div>
+        </div>
+    </fieldset>
+    <div class="ln_solid"></div>
+    <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+            <button type="submit" name="btnGenerar" class="btn btn-success" data-dismiss="modal" id="btnGenerar">Generar Reporte</button>
+        </div>
+    </div>
+</form>

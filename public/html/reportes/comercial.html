@@ -1,0 +1,62 @@
+<a class="btn btn-success" href="../secciones/seccionReportes"><i class="fa fa-arrow-left"></i> Regresar</a>
+<div class="ln_solid"></div>
+<form name="frmReporte" id="frmReporte" method="POST" action="generarinforme" onsubmit="return validarGeneracion();" class="form-horizontal form-label-left backgroundOscuro">
+    <fieldset>
+        <legend>Caracteristicas del Reporte</legend>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tipoReporte">TIPO DE REPORTE *</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <select name="tipoReporte" id="tipoReporte" class="form-control" required>
+                    <option value="">Seleccione...</option>
+                    <option value="3">Informe de Ventas Diario</option>
+                    <option value="4">Informe de Ventas Mensual</option>
+                    <option value="7">Informe de Retiros</option>
+                    <option value="12">Informe de Viabilidades</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="anio">ANIO *</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <select name="anio" id="anio" class="form-control" required>
+                    <option value="">Seleccione...</option>
+                    <option>2019</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mes">MES *</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <select name="mes" id="mes" class="form-control" required>
+                    <option value="">Seleccione...</option>
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mes">DIA *</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input type="date" id="fechaHoy" name="fechaHoy" value="" class="form-control" required>
+            </div>
+        </div>
+    </fieldset>
+    <div class="ln_solid"></div>
+    <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+            <button type="submit" name="btnGenerar" class="btn btn-success" data-dismiss="modal" id="btnGenerar">Generar Reporte</button>
+        </div>
+    </div>
+</form>

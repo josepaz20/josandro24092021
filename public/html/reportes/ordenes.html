@@ -1,0 +1,63 @@
+<form name="formReportes" id="formReportes" method="POST" class="form-horizontal form-label-left backgroundOscuro">
+    <fieldset>
+        <legend>Informacion del Cliente</legend>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tipoCliente">TIPO CLIENTE</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input id="tipoCliente" name="tipoCliente" value="{tipoCliente}" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idCliente">ID CLIENTE</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input id="idCliente" name="idCliente" value="{idCliente}" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idCuenta">ID CUENTA</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input id="idCuenta" name="idCuenta" value="{idCuenta}" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cliente">CLIENTE</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input id="cliente" name="cliente" value="{cliente}" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ubicacion">UBICACION</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input id="ubicacion" name="ubicacion" value="{ubicacion}" class="form-control" readonly>
+            </div>
+        </div>
+    </fieldset>
+    <div class="ln_solid"></div>    
+    <input type="hidden" name="idCorporativo" id="idCorporativo" value="{idCorporativo}">
+    <input type="hidden" name="idResidencial" id="idResidencial" value="{idResidencial}">
+    <a class="btn btn-success" href="../secciones/seccionReportes"><i class="fa fa-arrow-left"></i> Regresar</a>
+    <input type="submit" class="btn btn-success" value="Llamadas" onclick="reporteLlamadas()">
+    <input type="submit" class="btn btn-success" value="Ordenes de Trabajo" onclick="reporteOrdenes()">
+    <input type="submit" class="btn btn-success" value="Facturas" onclick="reporteFacturas()">
+    <input type="submit" class="btn btn-success" value="Recaudos" onclick="reporteRecaudos()">
+</form>
+<div class="backgroundOscuro form-horizontal form-label-left">
+    <table id="tabla" class="table table-bordered table-striped table-condensed" style="width: 100%">
+        <thead>
+            <tr>
+                <th style="width: 4% !important">ID</th>
+                <th>ASIGNADO POR</th>
+                <th>ASIGNADO A</th>
+                <th style="width: 8% !important">MUNICIPIO</th>
+                <th>CLIENTE</th>
+                <th>MOTIVO</th>
+                <th>DESCRIPCION</th>
+                <th>FECHA ASIGNACION</th>
+                <th>ESTADO</th>
+                <th>VER</th>
+            </tr>
+        </thead>
+        <tbody>{tablaOrdenes}</tbody>
+        <tfoot></tfoot>
+    </table>
+</div>

@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Dobleclick::Software e Ingenieria</title>
+        <link rel="stylesheet" type="text/css" href="../../public/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/plantilla_nomina.css?20Marzo2015"/>
+        <link rel="stylesheet" type="text/css" href="../../public/css/plantillaCalendario.css?20Marzo2015"/>
+        <link rel="stylesheet" type="text/css" href="../../public/css/font-awesome.min.css?04Mayo2017"/>
+        <link rel="stylesheet" type="text/css" href="../../public/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/buttons.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/fixedHeader.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/responsive.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/scroller.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/custom.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/jquery-ui.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/jquery-ui.structure.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/jquery-ui.theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/tabla_minimalista.css">
+        <link rel="stylesheet" type="text/css" href="/sw2click/public/css/tablas.css">
+
+        <script src="/sw2click/public/js/obtener_fecha_hora.js" language="JavaScript"></script>
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/jquery.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/sw2click/public/js/jquery.dataTables.js?26Junio2014"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/modernizr.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/obtener_fecha_hora.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/jquery.dataTables.min.js?06Mayo2017"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/jquery.blockUI.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/bootstrap.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/custom.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/dataTables.responsive.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/dataTables.scroller.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/responsive.bootstrap.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../public/js/scriptsReportes.js?27Marzo2020"></script>
+        <script>
+            $(document).ajaxStop($.unblockUI);
+            $(document).ready(function () {
+                oTable = $('#tabla').dataTable({
+                    "scrollX": true,
+                    "iDisplayLength": 25,
+                    "sPaginationType": "full_numbers",
+                    "oLanguage": {
+                        "sLengthMenu": "MOSTRAR: _MENU_ REGISTROS POR PAGINA",
+                        "sZeroRecords": "NO SE HA ENCONTRADO INFORMACION",
+                        "sInfo": "MOSTRANDO <b>_START_</b> A <b>_END_</b> REGISTROS <br>TOTAL REGISTROS: <b>_TOTAL_</b> REGISTROS</b>",
+                        "sInfoEmpty": "MOSTRANDO 0 A 0 REGISTROS",
+                        "sInfoFiltered": "(FILTRADOS DE UN TOTAL DE <b>_MAX_</b> REGISTROS)",
+                        "sSearch": "BUSCAR:",
+                        "sEmptyTable": "NO HAY INFORMACION DISPONIBLE PARA LA TABLA",
+                        "oPaginate": {
+                            "sFirst": "<i class='fa fa-fast-backward' aria-hidden='true' title='Inicio'></i>",
+                            "sPrevious": "<i class='fa fa-step-backward' aria-hidden='true' title='Anterior'></i>",
+                            "sNext": "<i class='fa fa-step-forward' aria-hidden='true' title='Siguiente'></i>",
+                            "sLast": "<i class='fa fa-fast-forward' aria-hidden='true' title='Fin'></i>",
+                        }
+                    },
+                    "aaSorting": [[0, "desc"]],
+                });
+                $('#tabla tbody').on('click', 'tr', function () {
+                    if ($(this).hasClass('selected')) {
+                        $(this).removeClass('selected');
+                    } else {
+                        oTable.$('tr.selected').removeClass('selected');
+                        $(this).addClass('selected');
+                    }
+                });
+                
+                var cache_1 = {};
+                $("#clientesBusq").autocomplete({
+                    minLength: 5,
+                    source: function (request, response) {
+                        var term = request.term;
+                        if (term in cache_1) {
+                            response(cache_1[ term ]);
+                            return;
+                        }
+                        $.getJSON("getBuscarClienteRES", request, function (data, status, xhr) {
+                            cache_1[ term ] = data;
+                            response(data);
+                        });
+                    }
+                });
+                var cache_2 = {};
+                $("#clientesCorpBusq").autocomplete({
+                    minLength: 5,
+                    source: function (request, response) {                        
+                        var term = request.term;
+                        if (term in cache_2) {
+                            response(cache_2[ term ]);
+                            return;
+                        }
+                        $.getJSON("getBuscarClienteCORP", request, function (data, status, xhr) {
+                            cache_2[ term ] = data;
+                            response(data);
+                        });
+                    }
+                });
+                
+            });
+
+        </script>
+    </head>
+    <body id="contenedor" onload="mostrarTiempo()" class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <div id="cabecera">
+                    <div id="logo">
+                        <img src="../../public/img/logo.png" alt="" title="Dobleclick Software e Ingenieria" border="0" />
+                    </div><!-- fin logo-->
+                    <div id="info_cabecera">
+                        <form name="form_info_cabecera" style="margin-top: -20px;">
+                            <input type="text" name="usuario" value="{nombreUsuario}" onfocus = "this.blur()" />
+                            <input type="text" name="hora" id="hora" onfocus = "this.blur()"/><br>
+                            <input type="text" name="cargo" value="{cargoEmpleado}" id="cargo" onfocus = "this.blur()"/>
+                            <input type="text" name="fecha" id="fecha" value="" onfocus = "this.blur()"/>
+                        </form>
+                        <div id="logout">
+                            <a href="/sw2click/modulos/usuarios/cerrarSesion" title="Cerrar Sesion">
+                                Cerrar Sesion
+                            </a>
+                        </div>   
+                    </div><!-- fin info_cabecera-->
+
+                </div><!-- fin cabecera-->
+                <div id="cuerpo" class="clearfix">
+                    <div id="menu">
+                        <a href="/sw2click/modulos/secciones/seccionGeneral" title="Seccion general">Inicio</a>
+                    </div>
+                    <div role="main" style="padding: 0px 50px 20px 50px">
+                        <br />
+                        <div id="mensaje">
+                            {mensaje}
+                        </div> <!-- fin mensaje-->   
+                        <div class="page-title" style="color: #222">
+                            <div class="title_left">
+                                <h3><i class="fa fa-briefcase"></i> {titulo} - <small style="color: #00F">{subtitulo}</small></h3>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            {contenido}
+                        </div>                
+                    </div><!-- fin cuerpo-->
+                </div><!-- fin cuerpo-->
+            </div>
+        </div>
+        <div id="pie_pagina">
+            <img src="../../public/img/copyright.png" alt="" border="0" />
+        </div>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+<div class="col-md-12 col-sm-12 col-xs-12 backgroundOscuro">
+    <form id="formEncuesta" name="formEncuesta" method="POST" action="registrarEncuesta" class="form-horizontal" onsubmit="return validarRegistrarEncuesta()">
+        <fieldset>
+            <legend>Encuesta INCIDENTE</legend>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label" for="respuesta_12">Conoce la fecha de corte de su servicio?</label>
+                    <select id="respuesta_12" name="respuesta_12" class="form-control" required>
+                        <option value="">Seleccione...</option>
+                        <option value="1">SI</option>
+                        <option value="0">NO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label" for="respuesta_13">Conoce las fechas de pago?</label>
+                    <select id="respuesta_13" name="respuesta_13" class="form-control" required>
+                        <option value="">Seleccione...</option>
+                        <option value="1">SI</option>
+                        <option value="0">NO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label" for="respuesta_14">Sabe cuales son los puntos de pagos autorizados?</label>
+                    <select id="respuesta_14" name="respuesta_14" class="form-control" required>
+                        <option value="">Seleccione...</option>
+                        <option value="1">SI</option>
+                        <option value="0">NO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label" for="respuesta_15">Cual medio utilizo para solicitar soporte tecnico?</label>
+                    <select id="respuesta_15" name="respuesta_15" class="form-control" required>
+                        <option value="">Seleccione...</option>
+                        <option value="1">LLAMADA A PBX</option>
+                        <option value="2">APP DOBLECLICK</option>
+                        <option value="3">WHATSAPP</option>
+                        <option value="4">FACEBOOK</option>
+                        <option value="5">CHAT PAGINA WEB</option>
+                        <option value="6">OFICINAS DOBLECLICK</option>
+                        <option value="7">TICKET WEB</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label" for="respuesta_16">Cuanto tiempo (minutos) en promedio esper&oacute; en la linea para ser atendido?</label>
+                    <input type="number" id="respuesta_16" name="respuesta_16" value="" min="0" max="120" class="form-control" required>
+                    <u style="color: white">Tiempo en MINUTOS</u>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label" for="respuesta_17">De 1 a 5 como califica la atencion de su agente de soporte tecnico</label>
+                    <input type="number" id="respuesta_17" name="respuesta_17" value="" min="1" max="5" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label" for="respuesta_18">De 1 a 5 como califica la solucion a su problema tecnico</label>
+                    <input type="number" id="respuesta_18" name="respuesta_18" value="" min="1" max="5" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label" for="respuesta_19">Existi&oacute; algun cobro adicional?</label>
+                    <select id="respuesta_19" name="respuesta_19" class="form-control" required>
+                        <option value="">Seleccione...</option>
+                        <option value="1">SI</option>
+                        <option value="0">NO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label" for="observacionincidente">Observaciones sobre Soporte Tecnico</label>
+                    <textarea id="observacionincidente" name="observacionincidente" class="form-control" maxlength="200"></textarea>
+                </div>
+            </div>
+        </fieldset> 
+        <div class="ln_solid"></div>
+        <input type="hidden" id="idIncidente" name="idIncidente" value="{idIncidente}" readonly>
+        <input type="hidden" name="fechaBusq" value="{fechaBusq}" readonly>
+        <input type="hidden" name="solucionadoBusq" value="{solucionadoBusq}" readonly>
+        <input type="hidden" name="desde" value="incidentes" readonly>
+        <div class="form-group">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
+                <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Registrar Encuesta</button>
+            </div>
+        </div>
+    </form>
+</div>

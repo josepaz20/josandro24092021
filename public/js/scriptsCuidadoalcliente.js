@@ -121,4 +121,14 @@ function setMarcadoLlamado(datos) {
     }
 }
 
+function verDetalle(idFormulario) {
+    $.get('detalle', {idFormulario: idFormulario}, setFormulario);
+    bloqueoAjax();
+}
+
+function setFormulario(respuesta) {
+    $("#divContenido").html(respuesta);
+    $('#modalFormulario').modal('show');
+}
+
 //------------------------------------------------------------------------------

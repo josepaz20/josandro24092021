@@ -45,27 +45,64 @@ function controlador() {
             $alertas = false;
             $datos['validacionOTs'] = '<div class="modulos_principales">
                                     <a href="/sw2click/modulos/cambiostitular/index">
-                                        <img src="/sw2click/public/img/validacionOTs.png" alt="Validacion de OTs" title="Validacion de recursos y materiales utilizados por OT.">
+                                    <img src="/sw2click/public/img/validacionOTs.png" alt="Validacion de OTs" title="Validacion de recursos y materiales utilizados por OT.">
                                     </a>
                                     <h3>Cambios de Titulares</h3>
                                  </div>';
             $datos['ampliacionesred'] = '<div class="modulos_principales">
                                     <a href="/sw2click/modulos/ampliacionred/index">
-                                        <img src="/sw2click/public/img/validacionOTs.png" alt="Validacion de OTs" title="Validacion de recursos y materiales utilizados por OT.">
+                                    <img src="/sw2click/public/img/validacionOTs.png" alt="Validacion de OTs" title="Validacion de recursos y materiales utilizados por OT.">
                                     </a>
                                     <h3>Ampliaciones de Red</h3>
                                  </div>';
             $datos['viabilidadampliacion'] = '<div class="modulos_principales">
                                     <a href="/sw2click/modulos/viabilidadampliacion/index">
-                                        <img src="/sw2click/public/img/validacionOTs.png" alt="Validacion de OTs" title="Viabilidad de ampliación de red.">
+                                    <img src="/sw2click/public/img/validacionOTs.png" alt="Validacion de OTs" title="Viabilidad de ampliación de red.">
                                     </a>
                                     <h3>Viabilidades de Ampliación</h3>
                                  </div>';
             $datos['corporativo'] = '<div class="modulos_principales">
                                     <a href="/sw2click/modulos/corporativo/index">
-                                        <img src="/sw2click/public/img/validacionOTs.png" alt="Validacion de OTs" title="Viabilidad de ampliación de red.">
+                                    <img src="/sw2click/public/img/validacionOTs.png" alt="Validacion de OTs" title="Registro de Corporativos.">
                                     </a>
-                                    <h3>Corporativo</h3>
+                                    <h3>Corporativos</h3>
+                                 </div>';
+             $datos['usuario'] = '<div class="modulos_principales">
+                                    <a href="/sw2click/modulos/usuario/index">
+                                    <img src="/sw2click/public/img/validacionOTs.png" alt="Validacion de OTs" title="Registro de Usuarios.">
+                                    </a>
+                                    <h3>Usuarios</h3>
+                                 </div>';
+             $datos['enviar_mensajes'] = '<div class="modulos_principales">
+                                    <a href="/sw2click/modulos/enviar_mensajes_pbx/administracion">
+                                    <img src="/sw2click/public/img/validacionOTs.png" alt="Validacion de OTs" title="Envio de Mensajes.">
+                                    </a>
+                                    <h3>Enviar Mensajes</h3>
+                                 </div>';
+             $datos['directorio'] = '<div class="modulos_principales">
+                                    <a href="/sw2click/modulos/directorio/index">
+                                    <img src="/sw2click/public/img/validacionOTs.png" alt="Validacion de OTs" title="Envio de Mensajes.">
+                                    </a>
+                                    <h3>Directorio</h3>
+                                 </div>';
+             $datos['cuidadoalcliente'] = '<div class="modulos_principales">
+                                    <a href="/sw2click/modulos/cuidadoalcliente/instalaciones">
+                                    <img src="/sw2click/public/img/validacionOTs.png" alt="Validacion de OTs" title="Envio de Mensajes.">
+                                    </a>
+                                    <h3>Cuidado Al Cliente</h3>
+                                 </div>';
+             
+             $datos['cargosempleado'] = '<div class="modulos_principales">
+                                    <a href="/sw2click/modulos/cargoempleado/index">
+                                    <img src="/sw2click/public/img/validacionOTs.png" alt="Validacion de OTs" title="Envio de Mensajes.">
+                                    </a>
+                                    <h3>Cargos Empleado</h3>
+                                 </div>';
+             $datos['reportes'] = '<div class="modulos_principales">
+                                    <a href="/sw2click/modulos/reportes/residencial">
+                                    <img src="/sw2click/public/img/validacionOTs.png" alt="Validacion de OTs" title="Envio de Mensajes.">
+                                    </a>
+                                    <h3>Reportes</h3>
                                  </div>';
             setScriptAlertas($alertas);
             verVista($evento, $datos);

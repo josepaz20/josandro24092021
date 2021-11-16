@@ -1,0 +1,51 @@
+<div class="col-md-12 col-sm-12 col-xs-12 backgroundOscuro">
+    <form action="update" method="POST" onsubmit="return validarEditarUsuario()" class="form-horizontal form-label-left" enctype="multipart/form-data">
+       <div class="ln_solid"></div>
+       <div id="frmRegistrar"  class="form-horizontal form-label-left">
+           <fieldset>
+           <legend>Registro del Usuario</legend>           
+             
+           <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idUsuario">ID USUARIO</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="idUsuario" name="idUsuario"  value ={idUsuario} maxlength="60" style="text-transform: uppercase" class="form-control" readonly>
+                </div>
+            </div>                        
+           <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="login">LOGIN</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="login" name="login" value="{login}" maxlength="60" style="text-transform: uppercase" class="form-control" required>
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">PASSWORD</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="password" name="password" value="{password}"  maxlength="60" style="text-transform: uppercase" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fechaHoraUltIN">FECHA DE ULTIMO INGRESO</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="date" id="fechaHoraUltIN" name="fechaHoraUltIN" value={fechaHoraUltIN} class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="estado">Estado</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="estado" name="estado" value={estado} class="form-control" required>
+                </div>
+            </div>
+            
+        <div class="ln_solid"></div>
+        
+        <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> Editar Usuario</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
+            </div>
+        </div>
+         </form>
+    </fieldset>
+</div>
+   
+</div>

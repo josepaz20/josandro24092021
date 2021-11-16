@@ -1,0 +1,55 @@
+<div class="col-md-12 col-sm-12 col-xs-12 backgroundOscuro">
+    <form id="formNovedad" name="formNovedad" method="POST" action="registrarEncuesta" class="form-horizontal" onsubmit="return validarRegistrarEncuesta()">
+        <fieldset>
+            <legend>Encuesta VISITA TECNICA</legend>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label" for="respuesta_20">Del 1 al 5 como calificaria la visita tecnica</label>
+                    <input type="number" id="respuesta_20" name="respuesta_20" value="" min="1" max="5" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label" for="respuesta_21">Del 1 al 5 como calificaria el trato del personal tecnico</label>
+                    <input type="number" id="respuesta_21" name="respuesta_21" value="" min="1" max="5" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label" for="respuesta_22">Del 1 al 5 como calificaria la rapidez de la solucion</label>
+                    <input type="number" id="respuesta_22" name="respuesta_22" value="" min="1" max="5" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label" for="respuesta_10">Nuestro personal tecnico ingreso con traje de bioseguridad?</label>
+                    <select id="respuesta_10" name="respuesta_10" class="form-control" required>
+                        <option value="">Seleccione...</option>
+                        <option value="1">SI</option>
+                        <option value="0">NO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label" for="respuesta_11">Existi&oacute; algun cobro adicional?</label>
+                    <select id="respuesta_11" name="respuesta_11" class="form-control" required>
+                        <option value="">Seleccione...</option>
+                        <option value="1">SI</option>
+                        <option value="0">NO</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset> 
+        <div class="ln_solid"></div>
+        <input type="hidden" id="idOT" name="idOT" value="{idOT}" readonly>
+        <input type="hidden" name="fechaBusq" value="{fechaBusq}" readonly>
+        <input type="hidden" name="desde" value="visitastecnicas" readonly>
+        <div class="form-group">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
+                <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Registrar Encuesta</button>
+            </div>
+        </div>
+    </form>
+</div>

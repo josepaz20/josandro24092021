@@ -1,0 +1,50 @@
+<div class="col-md-12 col-sm-12 col-xs-12 backgroundOscuro">
+    <form action="delete" method="POST" onsubmit="return validarEliminarUsuario()" class="form-horizontal form-label-left" enctype="multipart/form-data">
+        <div class="ln_solid"></div>
+        <div id="frmRegistrar"  class="form-horizontal form-label-left">
+            <fieldset>
+                <legend>Eliminación del Usuario</legend>           
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idUsuario">ID USUARIO *</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input  id="idUsuario" name="idUsuario"  value="{idUsuario}" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idEmpleado">USUARIO</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input id="idEmpleado" name="idEmpleado" value="{idEmpleado}" maxlength="10" style="text-transform: uppercase" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="login">LOGIN</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input id="login" name="login" value="{login}" maxlength="30" style="text-transform: uppercase" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="estado">ESTADO</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input id="estado" name="estado" value="{estado}" maxlength="20" style="text-transform: uppercase" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fechaHoraUltIN">FECHA DE ULTIMO INGRESO</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input id="fechaHoraUltIN" name="fechaHoraUltIN" value="{fechaHoraUltIN}" maxlength="60" style="text-transform: uppercase" class="form-control" readonly>
+                    </div>
+                </div>
+
+                <div class="ln_solid"></div>
+
+                <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> Eliminar Usuario</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
+                    </div>
+                </div>
+                </form>
+            </fieldset>
+        </div>
+</div>

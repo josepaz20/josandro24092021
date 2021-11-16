@@ -1,0 +1,107 @@
+<form name="formReportes" id="formReportes" method="POST" class="form-horizontal form-label-left backgroundOscuro">
+    <fieldset>
+        <legend>Informacion del Cliente</legend>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tipoCliente">TIPO CLIENTE</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input id="tipoCliente" name="tipoCliente" value="{tipoCliente}" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idCliente">ID CLIENTE</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input id="idCliente" name="idCliente" value="{idCliente}" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idCuenta">ID CUENTA</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input id="idCuenta" name="idCuenta" value="{idCuenta}" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cliente">CLIENTE</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input id="cliente" name="cliente" value="{cliente}" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ubicacion">UBICACION</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input id="ubicacion" name="ubicacion" value="{ubicacion}" class="form-control" readonly>
+            </div>
+        </div>
+    </fieldset>
+    <div class="ln_solid"></div>    
+    <input type="hidden" name="idCorporativo" id="idCorporativo" value="{idCorporativo}">
+    <input type="hidden" name="idResidencial" id="idResidencial" value="{idResidencial}">
+    <a class="btn btn-success" href="../secciones/seccionReportes"><i class="fa fa-arrow-left"></i> Regresar</a>
+    <input type="submit" class="btn btn-success" value="Llamadas" onclick="reporteLlamadas()">
+    <input type="submit" class="btn btn-success" value="Ordenes de Trabajo" onclick="reporteOrdenes()">
+    <input type="submit" class="btn btn-success" value="Facturas" onclick="reporteFacturas()">
+    <input type="submit" class="btn btn-success" value="Recaudos" onclick="reporteRecaudos()">
+</form>
+<div class="backgroundOscuro form-horizontal form-label-left">
+    <table id="tabla" class="table table-bordered table-striped table-condensed" style="width: 100%">
+        <thead>
+            <tr>
+                <th style="width: 4% !important">ID</th>
+                <th>CODIGO</th>
+                <th>CLIENTE</th>
+                <th style="width: 8% !important">MUNICIPIO</th>
+                <th>TOTAL FACTURA</th>
+                <th>CARGO FIJO</th>
+                <th>DEUDA</th>
+                <th>ABONO</th>
+                <th>SALDO ABONO</th>
+                <th>PERIODO</th>
+                <th>AÑO</th>
+                <th>ESTADO</th>
+                <th>IMP</th>
+            </tr>
+        </thead>
+        <tbody>{tablaFacturas}</tbody>
+        <tfoot></tfoot>
+    </table>
+</div>
+
+<div class="modal fade" id="modalFormulario" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="overflow-y: scroll">
+    <div class="modal-dialog" role="document" style="width: 350px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Sistema de Impresion</h4>
+            </div>
+            <div class="modal-body">
+                <div style="padding: 10px" class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content" id="divContenido">
+                                    <div class="backgroundOscuro form-horizontal form-label-left">
+                                        <fieldset>
+                                            <legend> Factura a Imprimir </legend>
+                                            <div class="form-group">
+                                                <label class="control-label" for="checkOriginal">ORIGINAL</label> &nbsp;
+                                                <input type="checkbox" name="tipo" id="checkOriginal" value="1">
+                                            </div>
+                                        </fieldset>
+                                        <div class="ln_solid"></div>
+                                        <div class="form-group">
+                                            <input type="hidden" name="idFactura" id="idFactura" value="0">
+                                            <input type="hidden" name="tipo" id="tipo" value="0">
+                                            <a class="btn btn-success" href="javascript:imprimirFactura_1()"><i class="fa fa-print"></i> Imprimir</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <b>DOBLECLICK SOFTWARE E INGENIERIA S.A.S. &copy Copyright <?php echo date('Y'); ?></b>
+            </div>
+        </div>
+    </div>
+</div>

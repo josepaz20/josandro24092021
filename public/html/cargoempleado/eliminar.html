@@ -1,0 +1,56 @@
+<div class="col-md-12 col-sm-12 col-xs-12 backgroundOscuro">
+    <form action="delete" method="POST" onsubmit="return validarEliminarCargo()" class="form-horizontal form-label-left" enctype="multipart/form-data">
+           <fieldset>
+            <legend>Registro del Cargo de Empleado</legend>          
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idCargo">ID CARGO*</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="idCargo" name="idCargo" value="{idCargo}" maxlength="100" class="form-control" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cargo">CARGO*</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="cargo" name="cargo" value="{cargo}" maxlength="100" class="form-control" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="estado">ESTADO*</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="estado" name="estado" value="{estado}" maxlength="100" class="form-control" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="registradopor">REGISTRADO POR*</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="registradopor" name="registradopor" value="{registradopor}" maxlength="100" class="form-control" readonly>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modificadopor">MODIFICADO POR*</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="modificadopor" name="modificadopor" value="{modificadopor}" maxlength="100" class="form-control" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fechahorareg">FECHA DE REGISTRO*</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="fechahorareg" name="fechahorareg" value="{fechahorareg}" maxlength="100" class="form-control" readonly>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fechahoramod">FECHA DE MODIFICACION*</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="fechahoramod" name="fechahoramod" value="{fechahoramod}" maxlength="100" class="form-control" readonly>
+                </div>
+            </div> 
+        </fieldset>
+        <div class="ln_solid"></div>
+        <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Eliminar Cargo</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,35 @@
+<div class="bandaOpciones">{bandaOpciones}</div> <br>
+<div class="backgroundOscuro form-horizontal form-label-left">
+    <fieldset>
+        <legend>Filtro de Busqueda</legend>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fechaBusq">TIPO ENCUESTA</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <select id="idTipoEncuesta" name="idTipoEncuesta" class="form-control" onchange="getPreguntasEncuesta()" required>
+                    <option value="">Seleccione...</option>
+                    <option value="1">Instalaciones</option>
+                    <option value="2">Incidentes</option>
+                    <option value="3">Visitas Tecnicas</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fechaBusq">PREGUNTA</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <select id="idPregunta" name="idPregunta" class="form-control" required>
+                    <option value="">Seleccione...</option>
+                </select>
+            </div>
+        </div>
+    </fieldset> <hr>
+    <button type="button" class="btn btn-primary" onclick="generarGrafico()"><i class="fa fa-search"></i> Generar Grafico</button>
+</div>
+<div id="divGrafico" class="backgroundOscuro form-horizontal form-label-left">
+</div>
+
+<br><br><br><br>
+
+<script type="text/javascript" charset="utf-8" src="../../public/js/graficos/highcharts.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../public/js/graficos/exporting.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../public/js/graficos/export-data.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../public/js/graficos/accessibility.js"></script>

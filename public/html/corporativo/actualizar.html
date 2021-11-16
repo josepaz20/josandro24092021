@@ -2,23 +2,10 @@
     <form action="update" method="POST" onsubmit="return validarEditarCorporativo()" class="form-horizontal form-label-left" enctype="multipart/form-data">
         <fieldset>
             <legend>Ubicación del Cliente</legend>
-            
-            <div class="hidden">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idCorporativo">ID CORPORATIVO*</label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="idCorporativo" name="idCorporativo" value="{idCorporativo}" maxlength="100" class="form-control" required>
-                </div>
-            </div>
-            <div class="hidden">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idPrefijo">ID PREFIJO *</label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="idPrefijo" name="idPrefijo" value="{idPrefijo}" maxlength="100" class="form-control" required>
-                </div>
-            </div>
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idDpto">DEPARTAMENTO *</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <select id="idDpto" name="idDpto" class="form-control" onchange="getMunicipios(this.value)" required>
+                    <select id="idDpto" name="idDpto" class="form-control"  style="text-transform: uppercase" onchange="getMunicipios(this.value)" required>
                         {listaDptos}
                     </select>
                 </div>
@@ -26,98 +13,78 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idMcpo">MUNICIPIO *</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <select id="idMcpo" name="idMcpo" class="form-control" required>
+                    <select id="idMcpo" name="idMcpo" class="form-control"  style="text-transform: uppercase" required>
                         {listaMunicipios}
                     </select>
                 </div>
             </div>
         </fieldset>
-         <fieldset>
+        <div class="ln_solid"></div>
+        <fieldset>
             <legend>Información del Cliente</legend>
-            
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nit">NIT *</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="nit" name="nit" onchange="existeNitActualizado()" placeHolder="Digite Sólo Números(Sin Guiones)" value="{nit}" class="form-control" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nitOld">NIT *</label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="nitOld" name="nitOld"  placeHolder="Digite Sólo Números(Sin Guiones)" value="{nit}" class="form-control" readonly>
+                    <input type="number" id="nit" min="0" name="nit" onchange="existeNit()" placeHolder="Digite Sólo Números(Sin Guiones)" value="{nit}" class="form-control" required>
+                    <input type="hidden" id="nitOLD" name="nitOLD"  value="{nit}" readonly>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="razonSocial">RAZON SOCIAL *</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="razonSocial" name="razonSocial" value="{razonSocial}" maxlength="100" class="form-control" required>
+                    <input id="razonSocial" name="razonSocial" value="{razonSocial}" style="text-transform: uppercase" maxlength="60" class="form-control" required>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="direccion">DIRECCION *</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="direccion" name="direccion" value="{direccion}" maxlength="100" class="form-control" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefono">TELEFONO *</label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="telefono" name="telefono" value="{telefono}"  class="form-control" required>
+                    <input id="direccion" name="direccion" value="{direccion}"  style="text-transform: uppercase" maxlength="80" class="form-control" required>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="celular1">CELULAR 1 *</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="celular1" name="celular1" value="{celular1}"  class="form-control" required>
+                    <input type="number" id="celular1" name="celular1" value="{celular1}" min="0" class="form-control" required>
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="celular2">CELULAR 2 *</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="celular2">CELULAR 2</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input  id="celular2" name="celular2" value="{celular2}"  class="form-control" required>
+                    <input type="number" id="celular2" name="celular2" value="{celular2}" min="0" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefono">TELEFONO</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="number" id="telefono" name="telefono" value="{telefono}" min="0" class="form-control">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email1">E-MAIL 1 *</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type ="email" id="email1" name="email1" value="{email1}" maxlength="100" class="form-control" required>
+                    <input type ="email" id="email1" name="email1" value="{email1}"  style="text-transform:lowercase" maxlength="80" class="form-control" required>
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email2">E-MAIL 2*</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email2">E-MAIL 2</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type ="email" id="email2" name="email2" value="{email2}" maxlength="100" class="form-control" required>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="observacion">OBSERVACIONES *</label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="observacion" name="observacion" value ="{observacion}" maxlength="100" class="form-control" required>
+                    <input type ="email" id="email2" name="email2" value="{email2}"  style="text-transform:lowercase" maxlength="80" class="form-control">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="referenciado">REFERENCIADO *</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="observacion">OBSERVACIONES</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <select id="referenciado" name="referenciado" class="form-control" onchange="setReferenciado()"  required>                     
-                        {listaReferenciados}
-                    </select>
+                    <textarea id="observacion" name="observacion" maxlength="100" style="text-transform: uppercase" class="form-control"> {observacion} </textarea>
                 </div>
             </div>
-            <div class="form-group">
-                <label id = "referenciadoactual" class="control-label col-md-3 col-sm-3 col-xs-12" for="referenciadoPor">REFERENCIADO POR</label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type ="text" id="referenciadoPor" name="referenciadoPor" value="{referenciadoPor}" maxlength="100" class="form-control" >
-                </div>
-            </div> 
         </fieldset>
-         <fieldset>
+        <div class="ln_solid"></div>
+        <fieldset>
             <legend>Información del Representante Legal</legend>
-            
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="representanteLegal">REPRESENTANTE *</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="representanteLegal" name="representanteLegal" value="{representanteLegal}" maxlength="100" class="form-control" required>
+                    <input id="representanteLegal" name="representanteLegal" value="{representanteLegal}" style="text-transform: uppercase" maxlength="100" class="form-control" required>
                 </div>
             </div>
             <div class="form-group">
@@ -128,11 +95,40 @@
             </div>          
         </fieldset>
         <div class="ln_solid"></div>
+        <fieldset>
+            <legend>Información de Registro</legend>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idCorporativo">ID CORPORATIVO</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="idCorporativo" name="idCorporativo" value="{idCorporativo}" class="form-control" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="registradopor">REGISTRADO POR</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="registradopor" name="registradopor" value="{registradopor}" class="form-control" readonly>
+                </div>
+            </div>
+        </fieldset>
+        <div class="ln_solid"></div>
         <div class="form-group">
             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> Editar</button>
+                <button type="submit" class="btn btn-success"><i class="fa fa-edit"></i> Actualizar</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
             </div>
         </div>
     </form>
 </div>
+<script>
+    $("input").keydown(function (e) {
+        // Capturamos qué telca ha sido
+        var keyCode = e.which;
+        // Si la tecla es el Intro/Enter
+        if (keyCode == 13) {
+            // Evitamos que se ejecute eventos
+            event.preventDefault();
+            // Devolvemos falso
+            return false;
+        }
+    });
+</script>

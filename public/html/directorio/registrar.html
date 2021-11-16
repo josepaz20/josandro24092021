@@ -1,0 +1,94 @@
+<div class="col-md-12 col-sm-12 col-xs-12 backgroundOscuro">
+    <form action="insertarc" method="POST" onsubmit="return validarRegistrarDirectorio()" class="form-horizontal form-label-left" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Ubicación del Contacto</legend>           
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idDpto">DEPARTAMENTO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <select id="idDpto" name="idDpto" style="text-transform: uppercase" class="form-control" onchange="getMunicipios(this.value)" required>
+                        {listaDptos}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idMcpo">MUNICIPIO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <select id="idMcpo" name="idMcpo" style="text-transform: uppercase" class="form-control" required>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+        <div class="ln_solid"></div>
+        <fieldset>
+            <legend>Información del Contacto</legend>           
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tipoDirectorio">CARGO *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="tipoDirectorio" name="tipoDirectorio" maxlength="80"  style="text-transform: uppercase" value="" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="identificacion">IDENTIFICACION *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="identificacion" name="identificacion" onchange="existeIdentificacion()" placeHolder="Números(Sin Guiones)" value="" maxlength="20" style="text-transform: uppercase" class="form-control" required>                    
+            </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombres">NOMBRES *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="nombres" name="nombres" value="" maxlength="80" style="text-transform: uppercase" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="apellidos"> APELLIDOS *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">               
+                    <input id="apellidos" name="apellidos"  value="" maxlength="80" style="text-transform: uppercase" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefono">TELEFONO</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="number" min="0" id="telefono" name="telefono" maxlength="50" value=""  class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="extension">EXTENSION OFICINA</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="number" min="0" id="extension" name="extension" maxlength="50" value=""  class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="direccion">DIRECCION</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="direccion" name="direccion" maxlength="100" value="" style="text-transform: uppercase"  class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email1">E-MAIL 1 *</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type ="email" id="email1" name="email1" maxlength="80" value="" style="text-transform: uppercase"  maxlength="80" style="text-transform: lowercase" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email2">E-MAIL 2</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type ="email" id="email2" name="email2" maxlength="80" value="" style="text-transform: uppercase" maxlength="80" class="form-control">
+                </div>
+            </div>           
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="observaciones">OBSERVACIONES</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <textarea id="observaciones" name="observaciones" maxlength="300" style="text-transform: uppercase" class="form-control"></textarea>
+                </div>
+            </div>          
+        </fieldset>
+        <div class="ln_solid"></div>        
+        <div class="ln_solid"></div>
+        <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Crear Contacto</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
+            </div>
+        </div>
+    </form>
+</div>
